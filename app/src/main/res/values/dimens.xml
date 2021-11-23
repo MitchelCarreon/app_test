@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="field_size">250dp</dimen>
+    <dimen name="margin_field">35dp</dimen>
+    <dimen name="margin_field_login">50dp</dimen>
+    <dimen name="login_btn_margin">20dp</dimen>
+</resources>
