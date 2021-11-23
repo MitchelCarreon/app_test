@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">app_test</string>
+    <string name="app_name">Wyrd Choices</string>
     <string name="username_placeholder">Username</string>
     <string name="password_placeholder">Password</string>
     <string name="official_appName">App name</string>
