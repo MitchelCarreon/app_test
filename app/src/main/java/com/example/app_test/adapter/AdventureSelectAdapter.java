@@ -19,11 +19,9 @@ public class AdventureSelectAdapter extends RecyclerView.Adapter {
     private List<Adventure_overview> adventuresList;
     private Context context;
 
-    public void setSelected(Boolean selected) {
-        isSelected = selected;
-    }
 
-    private Boolean isSelected;
+
+
 
     public AdventureSelectAdapter(List<Adventure_overview> adventuresList, Context context) {
         this.adventuresList = adventuresList;
@@ -31,7 +29,7 @@ public class AdventureSelectAdapter extends RecyclerView.Adapter {
     }
 
     public interface OnItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(int position) throws ClassNotFoundException;
     }
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
@@ -50,8 +48,8 @@ public class AdventureSelectAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         AdventureViewHolder viewHolder = (AdventureViewHolder) holder;
-        viewHolder.adventure_title.setText("Example Title");
-        viewHolder.adventure_desc.setText("Example description");
+        viewHolder.adventure_title.setText(this.adventuresList.get(position).getTitle());
+        viewHolder.adventure_desc.setText(this.adventuresList.get(position).getDescription());
     }
 
     @Override
@@ -76,7 +74,11 @@ public class AdventureSelectAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            onItemClickListener.onItemClick(getLayoutPosition());
+            try {
+                onItemClickListener.onItemClick(getLayoutPosition());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

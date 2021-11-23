@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.app_test.adapter.AdventureSelectAdapter;
 import com.example.app_test.adapter.Adventure_overview;
+import com.example.app_test.adventures.*;
 import com.example.app_test.databinding.ActivityAdventureSelectBinding;
 
 import java.util.ArrayList;
@@ -40,8 +43,10 @@ public class AdventureSelectActivity extends AppCompatActivity {
         this.adapter.setOnItemClickListener(
                 new AdventureSelectAdapter.OnItemClickListener() {
                     @Override
-                    public void onItemClick(int position) {
-
+                    public void onItemClick(int position) throws ClassNotFoundException {
+                        Intent intent = new Intent(getBaseContext(),
+                                adventures.get(position).getActivity_class_name());
+                        startActivity(intent);
                     }
                 }
         );
@@ -50,8 +55,14 @@ public class AdventureSelectActivity extends AppCompatActivity {
     private List<Adventure_overview> getAvailableAdventures(){
         List<Adventure_overview> adventures = new ArrayList<Adventure_overview>();
 
-        // ADD adventures here.
-        adventures.add(new Adventure_overview("Example title", "Example desc"));
+        // ADD adventures here. Adventure generator
+
+        adventures.add(new Adventure_overview(
+                "Example title1", "Example desc1"
+        , Sample_adventure.class));
+
+        adventures.add(new Adventure_overview(
+                "Example title2", "Example desc2", Sample_adventure.class));
 
         return adventures;
     }
