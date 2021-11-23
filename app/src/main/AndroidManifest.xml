@@ -15,7 +15,8 @@
             android:exported="true" />
         <activity
             android:name=".AdventureSelectActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.LoginScreen"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true"

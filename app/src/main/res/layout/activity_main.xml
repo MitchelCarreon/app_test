@@ -26,8 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +44,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="@dimen/field_size"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -81,9 +81,9 @@
             android:id="@+id/login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/login_btn_margin"
             android:insetTop="0dp"
             android:insetBottom="0dp"
-            android:layout_marginRight="@dimen/login_btn_margin"
             android:text="Login" />
 
         <com.google.android.material.button.MaterialButton
