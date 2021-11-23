@@ -14,16 +14,19 @@
 
 
     <com.google.android.material.bottomappbar.BottomAppBar
-        android:layout_width="match_parent"
-        android:layout_gravity="bottom"
         android:id="@+id/bottom_menu_bar"
         style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/ic_baseline_menu_24"
+        app:menu="@menu/adventure_select_bottom_menu"
+        android:layout_gravity="bottom" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/bottom_menu_bar"/>
+        android:src="@drawable/ic_baseline_info_24"
+        app:layout_anchor="@id/bottom_menu_bar" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.app_test.adapter.AdventureSelectAdapter;
@@ -50,6 +51,14 @@ public class AdventureSelectActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        // TODO: just experimenting with menu bar.
+        binding.bottomMenuBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getBaseContext(), "Menu bar clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private List<Adventure_overview> getAvailableAdventures(){
