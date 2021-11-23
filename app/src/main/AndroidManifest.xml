@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_test" >
+        <!-- TODO: update themes of activities here. -->
         <activity
             android:name=".adventures.Sample_adventure"
             android:exported="true" />
@@ -17,7 +18,8 @@
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true"
+            android:theme="@style/Theme.LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
