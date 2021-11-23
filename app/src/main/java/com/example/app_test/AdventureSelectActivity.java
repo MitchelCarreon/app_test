@@ -66,12 +66,12 @@ public class AdventureSelectActivity extends AppCompatActivity {
 
         // ADD adventures here. Adventure generator
 
-        adventures.add(new Adventure_overview(
+        adventures.add(new Adventure_overview(this,
                 "Example title1", "Example desc1"
-        , Sample_adventure.class));
+        , Sample_adventure.class,  R.drawable.ic_launcher_foreground));
 
-        adventures.add(new Adventure_overview(
-                "Example title2", "Example desc2", Sample_adventure.class));
+        adventures.add(new Adventure_overview(this,
+                "Example title2", "Example desc2", Sample_adventure.class,  R.drawable.ic_launcher_background));
 
         return adventures;
     }

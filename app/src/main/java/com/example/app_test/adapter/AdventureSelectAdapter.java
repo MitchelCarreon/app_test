@@ -48,8 +48,12 @@ public class AdventureSelectAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         AdventureViewHolder viewHolder = (AdventureViewHolder) holder;
-        viewHolder.adventure_title.setText(this.adventuresList.get(position).getTitle());
-        viewHolder.adventure_desc.setText(this.adventuresList.get(position).getDescription());
+
+        Adventure_overview adventure_item = this.adventuresList.get(position);
+        viewHolder.adventure_title.setText(adventure_item.getTitle());
+        viewHolder.adventure_desc.setText(adventure_item.getDescription());
+        viewHolder.itemView.setBackground(adventure_item.getBackground());
+
     }
 
     @Override
