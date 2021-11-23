@@ -23,7 +23,7 @@ public class AdventureSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.binding = ActivityAdventureSelectBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
-        initAdventureSelectScreen();
+        initAdventureSelectScreen(); // sample comment
     }
 
     private void initAdventureSelectScreen(){
