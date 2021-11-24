@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         if (checkEmptyFields()) return false;
 
         // admin login
-        if (this.binding.usernameField.getEditText().getText().toString().equals("admin") &&
+        if (this.binding.emailField.getEditText().getText().toString().equals("admin") &&
                 this.binding.passwordField.getEditText().getText().toString().equals("admin")) {
             return true;
         }
@@ -52,12 +52,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
     private Boolean checkEmptyFields(){
-        if (this.binding.usernameField.getEditText().getText().toString().isEmpty()) {
-            this.binding.usernameField.setError(getString(R.string.error_required));
-            this.binding.usernameField.requestFocus();
+        if (this.binding.emailField.getEditText().getText().toString().isEmpty()) {
+            this.binding.emailField.setError(getString(R.string.error_required));
+            this.binding.emailField.requestFocus();
             return true;
         }
-        else this.binding.usernameField.setError(null);
+        else this.binding.emailField.setError(null);
 
         if (this.binding.passwordField.getEditText().getText().toString().isEmpty()){
             this.binding.passwordField.setError(getString(R.string.error_required));

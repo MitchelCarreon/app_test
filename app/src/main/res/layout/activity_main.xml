@@ -30,22 +30,22 @@
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/username_field"
+        android:id="@+id/email_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_margin_field_small"
-        android:hint="@string/username_placeholder"
+        android:hint="@string/email_placeholder"
         app:errorEnabled="true"
         app:endIconMode="clear_text"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline_fields"
-        app:startIconDrawable="@drawable/ic_baseline_person_24">
+        app:startIconDrawable="@drawable/ic_baseline_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="@dimen/login_field_width"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             android:maxLines="1" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -60,7 +60,7 @@
         app:endIconMode="password_toggle"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username_field">
+        app:layout_constraintTop_toBottomOf="@id/email_field">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="@dimen/login_field_width"

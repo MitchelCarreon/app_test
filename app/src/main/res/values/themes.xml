@@ -22,8 +22,10 @@
         <item name="colorSecondary">#424242</item>
         <item name="colorOnPrimary">#ffffff</item>
         <item name="colorOnSecondary">#ffffff</item>
+
         <item name="fontFamily">@font/mplus_one</item>
         <item name="textInputStyle">@style/LoginfieldStyle</item>
+
         <item name="materialButtonStyle">@style/loginBtnStyle</item>
         <item name="materialCardViewStyle">@style/cardViewStyle</item>
     </style>
@@ -53,12 +55,12 @@
     </style>
 
     <style name="cardViewColors">
-        <!--        <item name="colorPrimary">#EAA8A8</item>-->
         <item name="colorSurface">#F5F5F5</item>
-        <!--        <item name="colorOnSurface">#ffffff</item>-->
         <item name="strokeColor">@color/cv_stroke_color</item>
         <item name="strokeWidth">1dp</item>
         <item name="cardElevation">0dp</item>
+        <!--        <item name="colorPrimary">#EAA8A8</item>-->
+        <!--        <item name="colorOnSurface">#ffffff</item>-->
     </style>
 
 

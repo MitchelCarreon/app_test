@@ -45,7 +45,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
-                    android:id="@+id/input_username_area"
+                    android:id="@+id/input_email_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/signup_first_field_marginTop"
@@ -58,14 +58,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/signup_img_height"
                         android:layout_marginRight="@dimen/signup_img_margin"
-                        android:src="@drawable/ic_baseline_person_24" />
+                        android:src="@drawable/ic_baseline_email_24" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_username"
+                        android:id="@+id/input_email"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:hint="@string/username_placeholder"
+                        android:hint="@string/email_placeholder"
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -82,7 +82,7 @@
                     android:orientation="horizontal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/input_username_area">
+                    app:layout_constraintTop_toBottomOf="@id/input_email_area">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -169,7 +169,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
-                    android:id="@+id/input_email_area"
+                    android:id="@+id/input_username_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/signup_first_field_marginTop"
@@ -182,14 +182,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/signup_img_height"
                         android:layout_marginRight="@dimen/signup_img_margin"
-                        android:src="@drawable/ic_baseline_email_24" />
+                        android:src="@drawable/ic_baseline_person_24" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/input_email"
+                        android:id="@+id/input_username"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:hint="@string/email_placeholder"
+                        android:hint="@string/username_placeholder"
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -207,7 +207,7 @@
 
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/input_email_area">
+                    app:layout_constraintTop_toBottomOf="@id/input_username_area">
 
 
                     <com.google.android.material.textview.MaterialTextView
