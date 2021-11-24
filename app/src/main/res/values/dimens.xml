@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="field_size">250dp</dimen>
-    <dimen name="margin_field">35dp</dimen>
-    <dimen name="margin_field_login">50dp</dimen>
-    <dimen name="login_btn_margin">20dp</dimen>
+    <dimen name="login_field_size">300dp</dimen>
+    <dimen name="login_margin_field_small">7dp</dimen>
+    <dimen name="login_margin_field">50dp</dimen>
+    <dimen name="login_btn_margin">30dp</dimen>
+
+
+    <dimen name="signup_activity_padding">30dp</dimen>
+    <dimen name="signup_img_margin">5dp</dimen>
+    <dimen name="signup_fields_marginTop">15dp</dimen>
+    <dimen name="signup_img_height">70dp</dimen>
+    <dimen name="signup_field_size">270dp</dimen>
+    <dimen name="signup_margin_field_small">8dp</dimen>
 </resources>

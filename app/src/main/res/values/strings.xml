@@ -3,4 +3,8 @@
     <string name="username_placeholder">Username</string>
     <string name="password_placeholder">Password</string>
     <string name="official_appName">App name</string>
+    <string name="signup_title">Sign up</string>
+    <string name="error_required">*Required</string>
+    <string name="email_placeholder">Email</string>
+    <string name="confirm_password_placeholder">Confirm password</string>
 </resources>

@@ -25,6 +25,7 @@
         <item name="fontFamily">@font/mplus_one</item>
         <item name="textInputStyle">@style/LoginfieldStyle</item>
         <item name="materialButtonStyle">@style/loginBtnStyle</item>
+        <item name="materialCardViewStyle">@style/cardViewStyle</item>
     </style>
 
     <!-- Styles for Login -->
@@ -33,12 +34,32 @@
         <item name="android:textSize">15sp</item>
     </style>
 
+
     <style name="LoginfieldStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="startIconTint">#000000</item>
         <item name="endIconTint">#000000</item>
     </style>
 
 
+    <!-- Styles for signup cardviews -->
+
+    <style name="cardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="materialThemeOverlay">@style/cardViewColors</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.MaterialComponents.MediumComponent
+        </item>
+
+        <item name="android:checkable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="cardViewColors">
+        <!--        <item name="colorPrimary">#EAA8A8</item>-->
+        <item name="colorSurface">#F5F5F5</item>
+        <!--        <item name="colorOnSurface">#ffffff</item>-->
+        <item name="strokeColor">@color/cv_stroke_color</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cardElevation">0dp</item>
+    </style>
 
 
 </resources>
