@@ -7,4 +7,7 @@
     <string name="error_required">*Required</string>
     <string name="email_placeholder">Email</string>
     <string name="confirm_password_placeholder">Confirm password</string>
+
+    <string name="signup_additional_info_title">Additional info</string>
+    <string name="sign_up_placeholder">Sign up</string>
 </resources>

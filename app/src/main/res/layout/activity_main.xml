@@ -43,7 +43,7 @@
         app:startIconDrawable="@drawable/ic_baseline_person_24">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="@dimen/login_field_size"
+            android:layout_width="@dimen/login_field_width"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:maxLines="1" />
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/username_field">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="@dimen/login_field_size"
+            android:layout_width="@dimen/login_field_width"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:maxLines="1"/>
@@ -96,7 +96,7 @@
             android:insetTop="0dp"
             style="?attr/materialButtonOutlinedStyle"
             android:insetBottom="0dp"
-            android:text="Sign up" />
+            android:text="@string/sign_up_placeholder" />
     </LinearLayout>
 
 

@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/adventure_desc"
-        android:layout_width="@dimen/login_field_size"
+        android:layout_width="@dimen/login_field_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="15dp"
