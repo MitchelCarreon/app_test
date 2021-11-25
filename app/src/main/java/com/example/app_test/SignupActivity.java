@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -20,10 +21,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
+
 
 public class SignupActivity extends AppCompatActivity {
     private ActivitySignupBinding binding;
-    private EditText email_editText, username_editText, pw_editText;
+    private EditText email_editText, username_editText, pw_editText, pwretype_editText;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase db;
@@ -50,43 +53,104 @@ public class SignupActivity extends AppCompatActivity {
         this.email_editText = this.binding.inputEmail.getEditText();
         this.username_editText = this.binding.inputUsername.getEditText();
         this.pw_editText = this.binding.inputPassword.getEditText();
+        this.pwretype_editText = this.binding.inputPasswordretype.getEditText();
 
         this.db = FirebaseDatabase.getInstance();
         this.db_reference = this.db.getReference("Users");
         this.mAuth = FirebaseAuth.getInstance();
     }
 
-    public void registerUserViaFirebase() {
+    private User createUser(){
         User new_user = new User(
                 this.email_editText.getText().toString(),
                 this.username_editText.getText().toString(),
                 this.binding.signupCountrySpinner.getSelectedCountryName());
 
-        // TODO: Handle empty fields and fields with incorrect input.
+        if (new_user.username.isEmpty()) {
+            Random rand = new Random();
+            int upperBound = 9999;
+            Integer userRandID = rand.nextInt(upperBound);
+            new_user.username = "User" + userRandID.toString();
+        }
+        return new_user;
+    }
+    public void registerUserViaFirebase() {
+        if (hasInvalidInput()) return;
+
+        User new_user = createUser();
+
         this.mAuth
                 .createUserWithEmailAndPassword(new_user.email, this.pw_editText.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             db_reference.child(new_user.username).setValue(new_user)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(SignupActivity.this, "Registration complete.", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-                                        startActivity(intent);
-                                    }
-                                    else {
-                                        Toast.makeText(SignupActivity.this, "Registration failed.", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(SignupActivity.this, "Registration complete.", Toast.LENGTH_SHORT).show();
+                                                Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                                                startActivity(intent);
+                                            } else {
+                                                Toast.makeText(SignupActivity.this, "Registration failed.", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
                         }
                     }
                 });
 
 
     }
+
+    private Boolean hasInvalidInput() {
+        Boolean hasInvalidInput = false;
+        int errorCounter = 0;
+
+        if (email_editText.getText().toString().isEmpty()) {
+            this.binding.inputEmail.setError("*Required");
+            this.binding.inputEmail.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email_editText.getText().toString()).matches()) {
+            this.binding.inputEmail.setError("Please enter a valid email");
+            this.binding.inputEmail.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        } else this.binding.inputEmail.setError(null);
+
+        if (pw_editText.getText().toString().isEmpty()) {
+            this.binding.inputPassword.setError("*Required");
+            this.binding.inputPassword.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        }
+        else if (!pw_editText.getText().toString().matches("(?=.*[0-9a-zA-Z]).{6,}")){
+            this.binding.inputPassword.setError("Minimum length: 6 characters.");
+            this.binding.inputPassword.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        } else this.binding.inputPassword.setError(null);
+
+        if (pwretype_editText.getText().toString().isEmpty()) {
+            this.binding.inputPasswordretype.setError("Please confirm password");
+            this.binding.inputPasswordretype.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        }
+        else if (!pw_editText.getText().toString().equals(pwretype_editText.getText().toString())) {
+            this.binding.inputPasswordretype.setError("Password does not match");
+            this.binding.inputPasswordretype.requestFocus();
+            hasInvalidInput = true;
+            ++errorCounter;
+        } else this.binding.inputPasswordretype.setError(null);
+
+        if (errorCounter >= 2) this.binding.signupEssentialsCVArea.requestFocus();
+
+        return hasInvalidInput;
+    }
 }
+

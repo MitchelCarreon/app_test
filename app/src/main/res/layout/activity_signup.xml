@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/signup_activity_padding">
 
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/signup_essentialsCV_area"
             android:layout_width="match_parent"
@@ -41,7 +42,6 @@
                     app:layout_constraintHorizontal_bias="0.13"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
@@ -64,13 +64,14 @@
                         android:id="@+id/input_email"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="@string/email_placeholder"
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="@dimen/signup_field_size"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
@@ -78,7 +79,6 @@
                     android:id="@+id/input_password_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/signup_margin_field_small"
                     android:orientation="horizontal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -94,14 +94,14 @@
                         android:id="@+id/input_password"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-
+                        android:layout_height="wrap_content"
                         android:hint="@string/password_placeholder"
                         app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="@dimen/signup_field_size"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
@@ -109,7 +109,6 @@
                     android:id="@+id/input_passwordretype_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/signup_margin_field_small"
                     android:orientation="horizontal"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -125,13 +124,15 @@
                         android:id="@+id/input_passwordretype"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:hint="@string/confirm_password_placeholder"
-                        app:errorEnabled="true">
+                        app:errorEnabled="true"
+                        app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="@dimen/signup_field_size"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 

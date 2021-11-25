@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+
     tools:context=".LoginActivity">
     <!-- TODO: SET theme/textStyles/buttonColor etc. -->
+
 
     <LinearLayout
         android:id="@+id/logo_and_appName_area"
@@ -35,8 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_margin_field_small"
         android:hint="@string/email_placeholder"
-        app:errorEnabled="true"
         app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/guideline_fields"
@@ -54,10 +56,10 @@
         android:id="@+id/password_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/password_placeholder"
-        app:errorEnabled="true"
         android:layout_marginTop="@dimen/login_margin_field_small"
+        android:hint="@string/password_placeholder"
         app:endIconMode="password_toggle"
+        app:errorEnabled="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/email_field">
@@ -66,7 +68,7 @@
             android:layout_width="@dimen/login_field_width"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:maxLines="1"/>
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -91,10 +93,10 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signup_btn"
+            style="?attr/materialButtonOutlinedStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:insetTop="0dp"
-            style="?attr/materialButtonOutlinedStyle"
             android:insetBottom="0dp"
             android:text="@string/sign_up_placeholder" />
     </LinearLayout>
