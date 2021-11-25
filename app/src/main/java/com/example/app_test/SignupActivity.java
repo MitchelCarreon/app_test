@@ -4,9 +4,11 @@ package com.example.app_test;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 import com.example.app_test.Utils.User;
@@ -60,17 +62,31 @@ public class SignupActivity extends AppCompatActivity {
                 this.username_editText.getText().toString(),
                 this.binding.signupCountrySpinner.getSelectedCountryName());
 
-
+        // TODO: Handle empty fields and fields with incorrect input.
         this.mAuth
                 .createUserWithEmailAndPassword(new_user.email, this.pw_editText.getText().toString())
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            db_reference.child(new_user.username).setValue(new_user);
+                            db_reference.child(new_user.username).setValue(new_user)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(SignupActivity.this, "Registration complete.", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getBaseContext(), LoginActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Toast.makeText(SignupActivity.this, "Registration failed.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
                         }
                     }
                 });
+
 
     }
 }
