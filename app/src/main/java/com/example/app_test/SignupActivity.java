@@ -60,7 +60,7 @@ public class SignupActivity extends AppCompatActivity {
         this.mAuth = FirebaseAuth.getInstance();
     }
 
-    private User createUser(){
+    private User createUser() {
         User new_user = new User(
                 this.email_editText.getText().toString(),
                 this.username_editText.getText().toString(),
@@ -74,6 +74,7 @@ public class SignupActivity extends AppCompatActivity {
         }
         return new_user;
     }
+
     public void registerUserViaFirebase() {
         if (hasInvalidInput()) return;
 
@@ -105,7 +106,7 @@ public class SignupActivity extends AppCompatActivity {
 
     }
 
-    private Boolean hasInvalidInput() {
+    private Boolean hasInvalidInput() { // TODO: Fix dirty code
         Boolean hasInvalidInput = false;
         int errorCounter = 0;
 
@@ -113,42 +114,38 @@ public class SignupActivity extends AppCompatActivity {
             this.binding.inputEmail.setError("*Required");
             this.binding.inputEmail.requestFocus();
             hasInvalidInput = true;
-            ++errorCounter;
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email_editText.getText().toString()).matches()) {
+
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email_editText.getText().toString()).matches()) {
             this.binding.inputEmail.setError("Please enter a valid email");
             this.binding.inputEmail.requestFocus();
             hasInvalidInput = true;
-            ++errorCounter;
+
         } else this.binding.inputEmail.setError(null);
 
         if (pw_editText.getText().toString().isEmpty()) {
             this.binding.inputPassword.setError("*Required");
-            this.binding.inputPassword.requestFocus();
+            if (this.binding.inputEmail.getError() == null)this.binding.inputPassword.requestFocus();
             hasInvalidInput = true;
-            ++errorCounter;
-        }
-        else if (!pw_editText.getText().toString().matches("(?=.*[0-9a-zA-Z]).{6,}")){
-            this.binding.inputPassword.setError("Minimum length: 6 characters.");
-            this.binding.inputPassword.requestFocus();
+
+        } else if (!pw_editText.getText().toString().matches("(?=.*[0-9a-zA-Z]).{6,}")) {
+            this.binding.inputPassword.setError("Must contain at least 6 characters");
+            if (this.binding.inputEmail.getError() == null) this.binding.inputPassword.requestFocus();
             hasInvalidInput = true;
-            ++errorCounter;
+
         } else this.binding.inputPassword.setError(null);
 
         if (pwretype_editText.getText().toString().isEmpty()) {
-            this.binding.inputPasswordretype.setError("Please confirm password");
-            this.binding.inputPasswordretype.requestFocus();
-            hasInvalidInput = true;
-            ++errorCounter;
-        }
-        else if (!pw_editText.getText().toString().equals(pwretype_editText.getText().toString())) {
-            this.binding.inputPasswordretype.setError("Password does not match");
-            this.binding.inputPasswordretype.requestFocus();
-            hasInvalidInput = true;
-            ++errorCounter;
-        } else this.binding.inputPasswordretype.setError(null);
 
-        if (errorCounter >= 2) this.binding.signupEssentialsCVArea.requestFocus();
+            this.binding.inputPasswordretype.setError("Please confirm password");
+            if (this.binding.inputPassword.getError() == null) this.binding.inputPasswordretype.requestFocus();
+            hasInvalidInput = true;
+
+        } else if (!pw_editText.getText().toString().equals(pwretype_editText.getText().toString())) {
+            this.binding.inputPasswordretype.setError("Password does not match");
+            if (this.binding.inputPassword.getError() == null) this.binding.inputPasswordretype.requestFocus();
+            hasInvalidInput = true;
+
+        } else this.binding.inputPasswordretype.setError(null);
 
         return hasInvalidInput;
     }

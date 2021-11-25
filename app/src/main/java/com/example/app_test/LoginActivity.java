@@ -35,12 +35,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), AdventureSelectActivity.class);
 
-                if (hasInvalidInput()) {
+                if (isAdmin()) startActivity(intent);
+                else if (hasInvalidInput()) { }
+                else userLogin(intent);
 
-                } else {
-                    if (isAdmin()) startActivity(intent);
-                    else userLogin(intent);
-                }
             }
         });
         this.binding.signupBtn.setOnClickListener(new View.OnClickListener() {
