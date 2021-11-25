@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
     private ActivitySignupBinding binding;
-    private EditText email_editText, username_editText;
+    private EditText email_editText, username_editText, pw_editText;
 
     private FirebaseAuth mAuth;
     private FirebaseDatabase db;
@@ -35,7 +35,6 @@ public class SignupActivity extends AppCompatActivity {
 
         initComponents();
 
-//       FirebaseDatabase.getInstance().getReference("Users").child("Sample_node").setValue("sample_val");
         this.binding.signupRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,21 +42,35 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
     }
+
     public void initComponents() {
         setTitle(getString(R.string.signup_title));
         this.email_editText = this.binding.inputEmail.getEditText();
         this.username_editText = this.binding.inputUsername.getEditText();
+        this.pw_editText = this.binding.inputPassword.getEditText();
 
         this.db = FirebaseDatabase.getInstance();
         this.db_reference = this.db.getReference("Users");
+        this.mAuth = FirebaseAuth.getInstance();
     }
+
     public void registerUserViaFirebase() {
         User new_user = new User(
                 this.email_editText.getText().toString(),
                 this.username_editText.getText().toString(),
                 this.binding.signupCountrySpinner.getSelectedCountryName());
 
-        this.db_reference.child(new_user.username).setValue(new_user);
-        // TODO: FIX DB.
+
+        this.mAuth
+                .createUserWithEmailAndPassword(new_user.email, this.pw_editText.getText().toString())
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            db_reference.child(new_user.username).setValue(new_user);
+                        }
+                    }
+                });
+
     }
 }
