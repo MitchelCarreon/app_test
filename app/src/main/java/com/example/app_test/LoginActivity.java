@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
-
+        // test
         initComponents();
 
         this.binding.loginBtn.setOnClickListener(new View.OnClickListener() {
