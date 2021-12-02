@@ -7,7 +7,7 @@ import com.example.app_test.R;
 
 import java.util.Random;
 
-public class DataGenerator{
+public class CreatureGenerator {
 
     private static Random r = new Random();
 
