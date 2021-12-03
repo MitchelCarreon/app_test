@@ -15,7 +15,7 @@
             android:theme="@style/Theme.LoginScreen" />
         <!-- TODO: update themes of activities here. -->
         <activity
-            android:name=".adventures.Sample_adventure"
+            android:name=".adventures.ScenarioInitActivity"
             android:exported="true" />
         <activity
             android:name=".AdventureSelectActivity"

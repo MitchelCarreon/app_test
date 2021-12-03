@@ -68,10 +68,10 @@ public class AdventureSelectActivity extends AppCompatActivity {
 
         adventures.add(new Adventure_overview(this,
                 "Example title1", "Example desc1"
-        , Sample_adventure.class,  R.drawable.ic_launcher_foreground));
+        , ScenarioInitActivity.class,  R.drawable.ic_launcher_foreground));
 
         adventures.add(new Adventure_overview(this,
-                "Example title2", "Example desc2", Sample_adventure.class,  R.drawable.ic_launcher_background));
+                "Example title2", "Example desc2", ScenarioInitActivity.class,  R.drawable.ic_launcher_background));
 
         return adventures;
     }
