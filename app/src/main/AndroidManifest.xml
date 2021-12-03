@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_test">
+
+        <activity android:name=".adventures.adventure_game_one.AdventureGameActivity" />
         <activity
             android:name=".SignupActivity"
             android:exported="true"
-            android:theme="@style/Theme.LoginScreen" />
-        <!-- TODO: update themes of activities here. -->
+            android:theme="@style/Theme.LoginScreen" /> <!-- TODO: update themes of activities here. -->
         <activity
             android:name=".adventures.ScenarioInitActivity"
             android:exported="true" />
