@@ -11,6 +11,7 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/cardViewStyle"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -21,7 +22,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_1"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 1"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -29,7 +30,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_2"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 2"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -37,7 +38,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_3"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 3"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -45,7 +46,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_4"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 4"
                 app:layout_constraintLeft_toLeftOf="parent"
