@@ -69,8 +69,14 @@ public class ScenarioInitActivity extends AppCompatActivity {
                         = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
             } else if (input_txt.matches("btn_type:.*")) {
-                scene.btn_type = input_txt.substring(input_txt.indexOf(":") + 1)
-                        .trim().replaceAll("^\"|\"$", "");
+                scene.btn_type = Integer.parseInt(input_txt.substring(input_txt.indexOf(":") + 1)
+                        .trim().replaceAll("^\"|\"$", ""));
+            } else if (input_txt.matches("btn[0-4]_path:.*")){
+                scene.btn_paths
+                        .replace(input_txt.substring(0, input_txt.indexOf(':'))
+                                , Integer
+                                        .parseInt(input_txt.substring(input_txt.indexOf(':') + 1).
+                                                trim().replaceAll("^\"|\"$", "")));
             }
 
             if (input_txt.matches("</SCENARIO[0-9]*>")) {

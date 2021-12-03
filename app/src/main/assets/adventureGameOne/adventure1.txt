@@ -1,17 +1,21 @@
 <SCENARIO1>
-btn1_txt: "option for btn 1"
-btn2_txt: "option for btn 2"
-btn3_txt: "option for btn 3"
-btn4_txt: "option for btn 4"
-btn_type: "4"
-desc_txt: "Start of the story"
+btn1_txt: "option for btn 1";
+btn2_txt: "option for btn 2";
+btn3_txt: "option for btn 3";
+btn4_txt: "option for btn 4";
+btn_type: "4";
+desc_txt: "Start of the story";
+btn1_path: 1;
+btn2_path: 2;
+btn3_path: 3;
+btn4_path: 4;
 </SCENARIO1>
 
 <SCENARIO2>
-btn1_txt: "btn 1 option"
-btn2_txt: "btn 2 option"
-btn3_txt: "btn 3 option"
-btn4_txt: "btn 4 option"
-btn_type: "3"
-desc_txt: "Scenario 2 test"
+btn1_txt: "btn 1 option";
+btn2_txt: "btn 2 option";
+btn3_txt: "btn 3 option";
+btn4_txt: "btn 4 option";
+btn_type: "3";
+desc_txt: "Scenario 2 test";
 </SCENARIO2>

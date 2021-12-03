@@ -16,7 +16,7 @@ import com.example.app_test.Utils.Scenario;
 import com.google.android.material.button.MaterialButton;
 
 
-// POPULATES VIEWS.
+// POPULATES ALL!!!! VIEWS.
 public class four_btns extends Fragment {
     private Scenario scenario;
 
