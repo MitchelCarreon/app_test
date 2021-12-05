@@ -22,6 +22,8 @@ public class four_btns extends Fragment {
     private Scenario scenario;
     public static final String SCENARIO_KEY = "SCENARIO";
 
+    private MaterialButton btn_1, btn_2, btn_3, btn_4;
+
     private onPopulateListenerBTN4 listener;
     public interface onPopulateListenerBTN4 {
         public void onPopulateViewsBTN4(String text_desc);
@@ -48,26 +50,16 @@ public class four_btns extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        MaterialButton btn_1 = view.findViewById(R.id.btn_1);
-        MaterialButton btn_2 = view.findViewById(R.id.btn_2);
-        MaterialButton btn_3 = view.findViewById(R.id.btn_3);
-        MaterialButton btn_4 = view.findViewById(R.id.btn_4);
+        this.btn_1 = view.findViewById(R.id.btn_1);
+        this.btn_2 = view.findViewById(R.id.btn_2);
+        this.btn_3 = view.findViewById(R.id.btn_3);
+        this.btn_4 = view.findViewById(R.id.btn_4);
 
-        btn_1.setText(this.scenario.btn_txts.get("btn1_txt"));
-        btn_2.setText(this.scenario.btn_txts.get("btn2_txt"));
-        btn_3.setText(this.scenario.btn_txts.get("btn3_txt"));
-        btn_4.setText(this.scenario.btn_txts.get("btn4_txt"));
-
+        setBtnTxtandVisibility();
         listener.onPopulateViewsBTN4(this.scenario.scene_desc_txt);
+        setClickListeners();
 
 
-        // viewmodel comes in here.
-        btn_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                listener.onButtonClickBTN4(scenario.btn_paths.get("btn1_dest"));
-            }
-        });
     }
 
     // USED IN AdventureGameActivity to pass a scenario.
@@ -79,5 +71,41 @@ public class four_btns extends Fragment {
         fragment.setArguments(args);
 
         return fragment;
+    }
+
+    private void setBtnTxtandVisibility(){
+        btn_1.setText(this.scenario.btn_txts.get("btn1_txt"));
+        btn_2.setText(this.scenario.btn_txts.get("btn2_txt"));
+        btn_3.setText(this.scenario.btn_txts.get("btn3_txt"));
+        btn_4.setText(this.scenario.btn_txts.get("btn4_txt"));
+
+        // SET VISIBILITY OF BUTTONS HERE
+    }
+
+    private void setClickListeners(){
+        this.btn_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClickBTN4(scenario.btn_paths.get("btn1_dest"));
+            }
+        });
+        this.btn_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClickBTN4(scenario.btn_paths.get("btn2_dest"));
+            }
+        });
+        this.btn_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClickBTN4(scenario.btn_paths.get("btn3_dest"));
+            }
+        });
+        this.btn_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onButtonClickBTN4(scenario.btn_paths.get("btn4_dest"));
+            }
+        });
     }
 }
