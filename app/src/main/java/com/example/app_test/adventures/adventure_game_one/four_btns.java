@@ -99,24 +99,28 @@ public class four_btns extends Fragment {
             @Override
             public void onClick(View v) {
                 listener.onButtonClickBTN4(scenario.btn_paths.get("btn1_dest"));
+                scenario.update("btn1_txt", "btn1_dest");
             }
         });
         this.btn_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onButtonClickBTN4(scenario.btn_paths.get("btn2_dest"));
+                scenario.update("btn2_txt", "btn2_dest");
             }
         });
         this.btn_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onButtonClickBTN4(scenario.btn_paths.get("btn3_dest"));
+                scenario.update("btn3_txt", "btn3_dest");
             }
         });
         this.btn_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onButtonClickBTN4(scenario.btn_paths.get("btn4_dest"));
+                scenario.update("btn4_txt", "btn4_dest");
             }
         });
     }

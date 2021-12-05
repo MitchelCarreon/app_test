@@ -53,6 +53,7 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
             }
         });
 
+
         // TEST BUTTON - FRAGMENT
         this.binding.testBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,8 +65,6 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
             }
         });
 
-
-
     }
 
 
@@ -76,7 +75,6 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
     }
     @Override
     public void onButtonClickBTN4(int scenario_index) {
-//        this.next_scenario = this.scenarios.get(scenario_index);
         this.next_scenario_vModel.setCurrScenarioData(this.scenarios.get(scenario_index));
     }
 

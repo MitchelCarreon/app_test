@@ -95,6 +95,5 @@ public class ScenarioInitActivity extends AppCompatActivity {
             if (value.equals("") || value.equals("0")) btnType--;
         }
         scene.btn_type = btnType;
-
     }
 }
