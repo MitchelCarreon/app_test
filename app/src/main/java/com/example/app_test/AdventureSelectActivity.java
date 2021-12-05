@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.app_test.adapter.AdventureSelectAdapter;
 import com.example.app_test.adapter.Adventure_overview;
 import com.example.app_test.adventures.*;
+import com.example.app_test.adventures.adventure_game_one.AdventureGameActivity;
 import com.example.app_test.databinding.ActivityAdventureSelectBinding;
 
 import java.util.ArrayList;
@@ -68,10 +69,12 @@ public class AdventureSelectActivity extends AppCompatActivity {
 
         adventures.add(new Adventure_overview(this,
                 "Example title1", "Example desc1"
-        , Sample_adventure.class,  R.drawable.ic_launcher_foreground));
+        , ScenarioInitActivity.class,  R.drawable.ic_launcher_foreground));
 
+//        adventures.add(new Adventure_overview(this,
+//                "Example title2", "Example desc2", ScenarioInitActivity.class,  R.drawable.ic_launcher_background));
         adventures.add(new Adventure_overview(this,
-                "Example title2", "Example desc2", Sample_adventure.class,  R.drawable.ic_launcher_background));
+                "Example title2", "Example desc2", AdventureGameActivity.class,  R.drawable.ic_launcher_background));
 
         return adventures;
     }
