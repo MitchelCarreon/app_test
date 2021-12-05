@@ -23,12 +23,10 @@ public class four_btns extends Fragment {
     public static final String SCENARIO_KEY = "SCENARIO";
 
     private onPopulateListenerBTN4 listener;
-
     public interface onPopulateListenerBTN4 {
         public void onPopulateViewsBTN4(String text_desc);
         public void onButtonClickBTN4(int scenario_index);
     }
-
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -42,7 +40,6 @@ public class four_btns extends Fragment {
                              Bundle savedInstanceState) {
 
         this.scenario = getArguments().getParcelable(SCENARIO_KEY);
-
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_four_btns, container, false);
@@ -63,6 +60,8 @@ public class four_btns extends Fragment {
 
         listener.onPopulateViewsBTN4(this.scenario.scene_desc_txt);
 
+
+        // viewmodel comes in here.
         btn_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
