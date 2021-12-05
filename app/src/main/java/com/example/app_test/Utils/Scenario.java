@@ -14,7 +14,9 @@ public class Scenario implements Parcelable {
     public String scene_desc_txt;
     public int btn_type;
     public HashMap<String, Integer> btn_paths;
+
     public int num_references_to;
+    public Boolean isEnding;
 
 
     public void update(String btn_txt_key, String btn_dest_key) {
@@ -83,6 +85,8 @@ public class Scenario implements Parcelable {
         this.btn_paths.put("btn2_dest", -1);
         this.btn_paths.put("btn3_dest", -1);
         this.btn_paths.put("btn4_dest", -1);
+
+        this.isEnding = false;
     }
 
     protected Scenario(Parcel in) {
@@ -90,6 +94,8 @@ public class Scenario implements Parcelable {
         scene_desc_txt = in.readString();
         btn_type = in.readInt();
         btn_paths = (HashMap<String, Integer>) in.readSerializable();
+        num_references_to = in.readInt();
+        isEnding = in.readByte() != 0;
     }
 
     public static final Creator<Scenario> CREATOR = new Creator<Scenario>() {
@@ -115,5 +121,7 @@ public class Scenario implements Parcelable {
         dest.writeString(scene_desc_txt);
         dest.writeInt(btn_type);
         dest.writeSerializable(this.btn_paths);
+        dest.writeInt(this.num_references_to);
+        dest.writeByte((byte) (isEnding ? 1 : 0));
     }
 }

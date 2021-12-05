@@ -25,6 +25,6 @@ btn1_dest: 4;
 </SCENARIO3>
 
 <SCENARIO4>
-desc_txt: "ENDING";
+end_txt: "ENDING";
 </SCENARIO4>
 

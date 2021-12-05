@@ -80,6 +80,11 @@ public class ScenarioInitActivity extends AppCompatActivity {
                                         .parseInt(input_txt.substring(input_txt.indexOf(':') + 1).
                                                 trim().replaceAll("^\"|\"$", "")));
             }
+            else if (input_txt.matches("end_txt:.*")){
+                scene.scene_desc_txt = input_txt.substring(input_txt.indexOf(":") + 1)
+                        .trim().replaceAll("^\"|\"$", "");
+                scene.isEnding = true;
+            }
 
             if (input_txt.matches("</SCENARIO[0-9]*>")) {
                 determineBtnType(scene);
@@ -93,15 +98,30 @@ public class ScenarioInitActivity extends AppCompatActivity {
         // PASS PARCELABLE TO NEXT ACTIVITY
         intent.putParcelableArrayListExtra(SCENARIOS_KEY, scenarios_dynamic);
 
-        startActivity(intent);
-        finish();
+
+        if (!hasExceededReferences(scenarios_dynamic, scenario_num_references)){
+            startActivity(intent);
+            finish();
+        }
+        else {
+            Intent backToAdvSelect = new Intent(this, AdventureSelectActivity.class);
+            startActivity(backToAdvSelect);
+        }
+
     }
 
 
-    // TODO: FIX hasExceededReferences()
+    // TODO: FIX hasExceededReferences()??
     private Boolean hasExceededReferences(ArrayList<Scenario> scenarios_dynamic, ArrayList<Integer> scenario_num_references){
-        for (int i = 0; i < scenarios_dynamic.size(); ++i){
-            if (scenarios_dynamic.get(i).num_references_to >= Collections.frequency(scenario_num_references, i)){
+
+        // special case for beginning scenario
+        if (scenarios_dynamic.get(0).num_references_to >= scenarios_dynamic.get(0).btn_type){
+            return true;
+        }
+        for (int i = 1; i < scenarios_dynamic.size(); ++i){
+
+            // # of references_to_scenario CANNOT BE greater than # of buttons_in_scenario
+            if (!scenarios_dynamic.get(i).isEnding && (scenarios_dynamic.get(i).num_references_to > scenarios_dynamic.get(i).btn_type) ){
                 return true;
             }
         }
