@@ -32,7 +32,7 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
         this.scenarios = getIntent()
                 .getParcelableArrayListExtra(ScenarioInitActivity.SCENARIOS_KEY);
 
-
+        System.out.println("Breakpoint to contents of scenarios list here.");
         // INITIAL BUTTON LAYOUT FOR FRAGMENT
         four_btns fragment = four_btns.newInstance(scenarios.get(0));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
