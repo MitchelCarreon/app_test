@@ -18,6 +18,7 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
     private ActivityAdventureGameBinding binding;
     private ArrayList<Scenario> scenarios;
     private Scenario next_scenario;
+    // bucky
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
