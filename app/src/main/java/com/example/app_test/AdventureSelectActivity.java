@@ -22,7 +22,7 @@ public class AdventureSelectActivity extends AppCompatActivity {
     private ActivityAdventureSelectBinding binding;
     private RecyclerView recyclerView;
     private AdventureSelectAdapter adapter;
-
+    // sample push
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
