@@ -13,6 +13,7 @@ import com.example.app_test.databinding.ActivityScenarioInitBinding;
 // IO STUFF
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -68,10 +69,8 @@ public class ScenarioInitActivity extends AppCompatActivity {
                 scene.scene_desc_txt
                         = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
-            } else if (input_txt.matches("btn_type:.*")) {
-                scene.btn_type = Integer.parseInt(input_txt.substring(input_txt.indexOf(":") + 1)
-                        .trim().replaceAll("^\"|\"$", ""));
-            } else if (input_txt.matches("btn[0-4]_dest:.*")){
+            }
+            else if (input_txt.matches("btn[0-4]_dest:.*")){
                 scene.btn_paths
                         .replace(input_txt.substring(0, input_txt.indexOf(':'))
                                 , Integer
@@ -80,6 +79,7 @@ public class ScenarioInitActivity extends AppCompatActivity {
             }
 
             if (input_txt.matches("</SCENARIO[0-9]*>")) {
+                determineBtnType(scene);
                 scenarios_dynamic.add(scene);
             }
         }
@@ -88,5 +88,13 @@ public class ScenarioInitActivity extends AppCompatActivity {
         // PASS PARCELABLE TO NEXT ACTIVITY
         intent.putParcelableArrayListExtra(SCENARIOS_KEY, scenarios_dynamic);
         startActivity(intent);
+    }
+    private void determineBtnType(Scenario scene){
+        int btnType = 4;
+        for (String value : scene.btn_txts.values()){
+            if (value.equals("") || value.equals("0")) btnType--;
+        }
+        scene.btn_type = btnType;
+
     }
 }

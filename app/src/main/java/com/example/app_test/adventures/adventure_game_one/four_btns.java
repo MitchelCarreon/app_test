@@ -55,7 +55,7 @@ public class four_btns extends Fragment {
         this.btn_3 = view.findViewById(R.id.btn_3);
         this.btn_4 = view.findViewById(R.id.btn_4);
 
-        setBtnTxtandVisibility();
+        setBtnTxtAndVisibility();
         listener.onPopulateViewsBTN4(this.scenario.scene_desc_txt);
         setClickListeners();
 
@@ -73,14 +73,26 @@ public class four_btns extends Fragment {
         return fragment;
     }
 
-    private void setBtnTxtandVisibility(){
-        btn_1.setText(this.scenario.btn_txts.get("btn1_txt"));
-        btn_2.setText(this.scenario.btn_txts.get("btn2_txt"));
-        btn_3.setText(this.scenario.btn_txts.get("btn3_txt"));
-        btn_4.setText(this.scenario.btn_txts.get("btn4_txt"));
+    private void setBtnTxtAndVisibility(){
 
-        // SET VISIBILITY OF BUTTONS HERE
+        if (this.scenario.btn_type >= 1){
+            btn_1.setText(this.scenario.btn_txts.get("btn1_txt"));
+            btn_1.setVisibility(View.VISIBLE);
+            if (this.scenario.btn_type >= 2){
+                btn_2.setText(this.scenario.btn_txts.get("btn2_txt"));
+                btn_2.setVisibility(View.VISIBLE);
+                if (this.scenario.btn_type >= 3){
+                    btn_3.setText(this.scenario.btn_txts.get("btn3_txt"));
+                    btn_3.setVisibility(View.VISIBLE);
+                    if (this.scenario.btn_type >= 4){
+                        btn_4.setText(this.scenario.btn_txts.get("btn4_txt"));
+                        btn_4.setVisibility(View.VISIBLE);
+                    }
+                }
+            }
+        }
     }
+
 
     private void setClickListeners(){
         this.btn_1.setOnClickListener(new View.OnClickListener() {

@@ -1,77 +1,37 @@
 <SCENARIO0>
 btn1_txt: "Leads to scenario 1";
-btn2_txt: "0";
-btn3_txt: "0";
-btn4_txt: "0";
-btn_type: "4";
-desc_txt: "This is scenario 0";
 btn1_dest: 1;
-btn2_dest: 0;
-btn3_dest: 0;
-btn4_dest: 0;
+desc_txt: "This is scenario 0";
 </SCENARIO0>
 
 <SCENARIO1>
-btn1_txt: "0";
-btn2_txt: "Leads to scenario 2";
-btn3_txt: "0";
-btn4_txt: "0;
-btn_type: "4";
+btn1_txt: "Leads to scenario 2";
 desc_txt: "This is scenario 1";
-btn1_dest: 0;
-btn2_dest: 2;
-btn3_dest: 0;
-btn4_dest: 0;
+btn1_dest: 2;
 </SCENARIO1>
 
 <SCENARIO2>
-btn1_txt: "0";
-btn2_txt: "0";
-btn3_txt: "Leads to scenario 3";
-btn4_txt: "0;
-btn_type: "4";
-desc_txt: "This is scenario 2";
-btn1_dest: 0;
+btn1_txt: "Leads to scenario 3";
+btn1_dest: 3;
+btn2_txt: "leads to scenario 0";
 btn2_dest: 0;
-btn3_dest: 3;
-btn4_dest: 0;
+desc_txt: "This is scenario 2";
 </SCENARIO2>
 
 <SCENARIO3>
-btn1_txt: "0";
-btn2_txt: "0";
-btn3_txt: "0";
-btn4_txt: "Leads to scenario 4";
-btn_type: "4";
+btn1_txt: "Leads to scenario 4";
 desc_txt: "This is scenario 3";
-btn1_dest: 0;
-btn2_dest: 0;
-btn3_dest: 0;
-btn4_dest: 4;
+btn1_dest: 4;
 </SCENARIO3>
 
 <SCENARIO4>
 btn1_txt: "Leads to scenario 5";
-btn2_txt: "0";
-btn3_txt: "0";
-btn4_txt: "0";
-btn_type: "4";
 desc_txt: "This is scenario 4.";
 btn1_dest: 5;
-btn2_dest: 0;
-btn3_dest: 0;
-btn4_dest: 0;
 </SCENARIO4>
 
 <SCENARIO5>
 btn1_txt: "Leads to scenario 0";
-btn2_txt: "0";
-btn3_txt: "0";
-btn4_txt: "0";
-btn_type: "4";
 desc_txt: "This is scenario 5";
 btn1_dest: 0;
-btn2_dest: 0;
-btn3_dest: 0;
-btn4_dest: 0;
 </SCENARIO5>

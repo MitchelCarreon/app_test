@@ -11,9 +11,9 @@
 
     <com.google.android.material.card.MaterialCardView
         style="@style/cardViewStyle"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,6 +25,7 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 1"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +34,7 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 2"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_1" />
 
@@ -41,6 +43,7 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 3"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_2" />
 
@@ -49,6 +52,7 @@
                 android:layout_width="320dp"
                 android:layout_height="wrap_content"
                 android:text="button 4"
+                android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/btn_3" />
 
