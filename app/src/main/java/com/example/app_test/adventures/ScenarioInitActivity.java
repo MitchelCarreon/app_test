@@ -71,7 +71,7 @@ public class ScenarioInitActivity extends AppCompatActivity {
             } else if (input_txt.matches("btn_type:.*")) {
                 scene.btn_type = Integer.parseInt(input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", ""));
-            } else if (input_txt.matches("btn[0-4]_path:.*")){
+            } else if (input_txt.matches("btn[0-4]_dest:.*")){
                 scene.btn_paths
                         .replace(input_txt.substring(0, input_txt.indexOf(':'))
                                 , Integer

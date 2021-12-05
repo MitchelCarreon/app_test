@@ -14,9 +14,10 @@ import com.example.app_test.databinding.ActivityAdventureGameBinding;
 import java.util.ArrayList;
 
 // GAME LOGIC HERE
-public class AdventureGameActivity extends AppCompatActivity {
+public class AdventureGameActivity extends AppCompatActivity implements four_btns.onPopulateListenerBTN4 {
     private ActivityAdventureGameBinding binding;
     private ArrayList<Scenario> scenarios;
+    private Scenario next_scenario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,16 +25,18 @@ public class AdventureGameActivity extends AppCompatActivity {
         this.binding = ActivityAdventureGameBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
 
-        // make scenarios reference point to intent's scenarios
+        // make scenarios reference point to intent's scenarios from PARCELABLE EXTRA IN INTENT
         this.scenarios = getIntent()
                 .getParcelableArrayListExtra(ScenarioInitActivity.SCENARIOS_KEY);
 
-        System.out.println("HEre");
-        // IF (btnType == 4)
+
+        System.out.println("Breakpoint. Check if scenarios contains right contents.");
         four_btns fragment = four_btns.newInstance(scenarios.get(0));
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.game_btns_area, fragment);
         ft.commit();
+
+        // TEST BUTTON - FRAGMENT
         this.binding.testBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,4 +52,13 @@ public class AdventureGameActivity extends AppCompatActivity {
     }
 
 
+    // PASSING DATA FROM FRAGMENT TO ACTIVITY
+    @Override
+    public void onPopulateViewsBTN4(String text_desc) {
+        this.binding.scenarioDesc.setText(text_desc);
+    }
+    @Override
+    public void onButtonClickBTN4(int scenario_index) {
+        this.next_scenario = this.scenarios.get(scenario_index);
+    }
 }

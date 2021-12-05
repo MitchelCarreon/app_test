@@ -19,10 +19,10 @@ public class Scenario implements Parcelable {
         this.btn_txts.put("btn4_txt", "");
 
         this.btn_paths = new HashMap<>();
-        this.btn_paths.put("btn1_path", -1);
-        this.btn_paths.put("btn2_path", -1);
-        this.btn_paths.put("btn3_path", -1);
-        this.btn_paths.put("btn4_path", -1);
+        this.btn_paths.put("btn1_dest", -1);
+        this.btn_paths.put("btn2_dest", -1);
+        this.btn_paths.put("btn3_dest", -1);
+        this.btn_paths.put("btn4_dest", -1);
     }
 
     protected Scenario(Parcel in) {
