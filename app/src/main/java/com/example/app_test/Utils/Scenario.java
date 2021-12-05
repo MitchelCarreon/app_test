@@ -14,6 +14,7 @@ public class Scenario implements Parcelable {
     public String scene_desc_txt;
     public int btn_type;
     public HashMap<String, Integer> btn_paths;
+    public int num_references_to;
 
 
     public void update(String btn_txt_key, String btn_dest_key) {

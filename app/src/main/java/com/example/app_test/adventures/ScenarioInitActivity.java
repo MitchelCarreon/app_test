@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.example.app_test.Utils.Scenario;
 import com.example.app_test.adventures.adventure_game_one.AdventureGameActivity;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
 import java.util.Scanner;
 
 
@@ -84,10 +87,40 @@ public class ScenarioInitActivity extends AppCompatActivity {
             }
         }
 
+       setScenarioNumReferences(scenarios_dynamic);
 
         // PASS PARCELABLE TO NEXT ACTIVITY
         intent.putParcelableArrayListExtra(SCENARIOS_KEY, scenarios_dynamic);
-        startActivity(intent);
+
+        // HANDLER for delay only.
+        // TODO: Check for invalid input during delay. Otherwise, display error and option to go back.
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(intent);
+                finish();
+            }
+        }, 5000);
+//        startActivity(intent);
+    }
+
+    private void setScenarioNumReferences(ArrayList<Scenario> scenarios_dynamic){
+
+        ArrayList<Integer> scenario_references = new ArrayList<Integer>();
+        for (int i =0; i < scenarios_dynamic.size(); ++i){
+            Scenario curr_scenario = scenarios_dynamic.get(i);
+
+            for (Integer value : curr_scenario.btn_paths.values()){
+                scenario_references.add(value);
+            }
+        }
+
+        for (int i = 0; i < scenarios_dynamic.size(); ++i){
+            int count = Collections
+                    .frequency(scenario_references, i);
+            scenarios_dynamic.get(i).num_references_to = count;
+        }
+
     }
     private void determineBtnType(Scenario scene){
         int btnType = 4;
