@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
+import com.example.app_test.AdventureSelectActivity;
 import com.example.app_test.Utils.Scenario;
 import com.example.app_test.adventures.adventure_game_one.AdventureGameActivity;
 import com.example.app_test.databinding.ActivityScenarioInitBinding;
@@ -14,10 +16,8 @@ import com.example.app_test.databinding.ActivityScenarioInitBinding;
 // IO STUFF
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Map;
 import java.util.Scanner;
 
 
@@ -87,24 +87,27 @@ public class ScenarioInitActivity extends AppCompatActivity {
             }
         }
 
+        ArrayList<Integer> scenario_num_references =
        setScenarioNumReferences(scenarios_dynamic);
 
         // PASS PARCELABLE TO NEXT ACTIVITY
         intent.putParcelableArrayListExtra(SCENARIOS_KEY, scenarios_dynamic);
 
-        // HANDLER for delay only.
-        // TODO: Check for invalid input during delay. Otherwise, display error and option to go back.
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                startActivity(intent);
-                finish();
-            }
-        }, 5000);
-//        startActivity(intent);
+        startActivity(intent);
+        finish();
     }
 
-    private void setScenarioNumReferences(ArrayList<Scenario> scenarios_dynamic){
+
+    // TODO: FIX hasExceededReferences()
+    private Boolean hasExceededReferences(ArrayList<Scenario> scenarios_dynamic, ArrayList<Integer> scenario_num_references){
+        for (int i = 0; i < scenarios_dynamic.size(); ++i){
+            if (scenarios_dynamic.get(i).num_references_to >= Collections.frequency(scenario_num_references, i)){
+                return true;
+            }
+        }
+        return false;
+    }
+    private ArrayList<Integer> setScenarioNumReferences(ArrayList<Scenario> scenarios_dynamic){
 
         ArrayList<Integer> scenario_references = new ArrayList<Integer>();
         for (int i =0; i < scenarios_dynamic.size(); ++i){
@@ -121,6 +124,7 @@ public class ScenarioInitActivity extends AppCompatActivity {
             scenarios_dynamic.get(i).num_references_to = count;
         }
 
+        return scenario_references;
     }
     private void determineBtnType(Scenario scene){
         int btnType = 4;

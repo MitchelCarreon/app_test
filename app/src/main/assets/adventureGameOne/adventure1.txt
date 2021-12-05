@@ -1,10 +1,8 @@
 <SCENARIO0>
 btn1_txt: "Leads to scenario 1";
-btn2_txt: "Leads to scenario 2"
-btn3_txt: "Leads to scenario 3"
+btn2_txt: "Leads to scenario 3"
 btn1_dest: 1;
-btn2_dest: 2;
-btn3_dest: 3;
+btn2_dest: 3;
 desc_txt: "This is scenario 0";
 </SCENARIO0>
 
@@ -15,10 +13,8 @@ btn1_dest: 2;
 </SCENARIO1>
 
 <SCENARIO2>
-btn1_txt: "Leads to scenario 3";
-btn1_dest: 3;
-btn2_txt: "leads to scenario 0";
-btn2_dest: 0;
+btn1_txt: "leads to scenario 0";
+btn1_dest: 0;
 desc_txt: "This is scenario 2";
 </SCENARIO2>
 
@@ -29,13 +25,6 @@ btn1_dest: 4;
 </SCENARIO3>
 
 <SCENARIO4>
-btn1_txt: "Leads to scenario 5";
-desc_txt: "This is scenario 4.";
-btn1_dest: 5;
+desc_txt: "ENDING";
 </SCENARIO4>
 
-<SCENARIO5>
-btn1_txt: "Leads to scenario 0";
-desc_txt: "This is scenario 5";
-btn1_dest: 0;
-</SCENARIO5>

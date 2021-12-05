@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_test">
 
-        <activity android:name=".adventures.adventure_game_one.AdventureGameActivity" />
+        <activity
+            android:name=".adventures.adventure_game_one.AdventureGameActivity"
+            android:theme="@style/Theme.LoginScreen"/>
         <activity
             android:name=".SignupActivity"
             android:exported="true"

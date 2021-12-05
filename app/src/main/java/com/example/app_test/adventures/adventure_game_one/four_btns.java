@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import com.example.app_test.R;
 import com.example.app_test.Utils.Scenario;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.card.MaterialCardView;
 
 
 // POPULATES ALL!!!! VIEWS.
@@ -23,6 +25,7 @@ public class four_btns extends Fragment {
     public static final String SCENARIO_KEY = "SCENARIO";
 
     private MaterialButton btn_1, btn_2, btn_3, btn_4;
+    private MaterialCardView btns_cardView;
 
     private onPopulateListenerBTN4 listener;
     public interface onPopulateListenerBTN4 {
@@ -54,6 +57,7 @@ public class four_btns extends Fragment {
         this.btn_2 = view.findViewById(R.id.btn_2);
         this.btn_3 = view.findViewById(R.id.btn_3);
         this.btn_4 = view.findViewById(R.id.btn_4);
+        this.btns_cardView = view.findViewById(R.id.btns_cardView);
 
         setBtnTxtAndVisibility();
         listener.onPopulateViewsBTN4(this.scenario.scene_desc_txt);
@@ -74,6 +78,8 @@ public class four_btns extends Fragment {
     }
 
     private void setBtnTxtAndVisibility(){
+
+        if (this.scenario.btn_type == 0) btns_cardView.setVisibility(View.GONE);
 
         if (this.scenario.btn_type >= 1){
             btn_1.setText(this.scenario.btn_txts.get("btn1_txt"));
