@@ -60,6 +60,15 @@ public class AdventureSelectActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Menu bar clicked", Toast.LENGTH_SHORT).show();
             }
         });
+
+        this.binding.btnAdvCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent toAdvCreate = new Intent(getBaseContext(), AdventureCreateActivity.class);
+                startActivity(toAdvCreate);
+
+            }
+        });
     }
 
     private List<Adventure_overview> getAvailableAdventures(){
