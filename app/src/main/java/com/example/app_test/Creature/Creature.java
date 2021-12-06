@@ -9,6 +9,11 @@ public class Creature{
 
     public Creature(){}
 
+    public Creature(String name){
+        this.name = name;
+        lvl = hp = atk = def = 1;
+    }
+
     public String getName(){
         return name;
     }
