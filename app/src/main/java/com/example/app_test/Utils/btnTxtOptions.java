@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
 import com.example.app_test.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 
 
 public class btnTxtOptions extends Fragment {
@@ -26,22 +26,21 @@ public class btnTxtOptions extends Fragment {
     public int num_btns_to_display;
     private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field;
 
-    private onPopulateListener listener;
+    private onFieldsShownListener listener;
 
-    // TODO: Fix fragment for btn_txt input (AdventureCreateActivity).
     public btnTxtOptions() {
         // Required empty public constructor
     }
 
-    public interface onPopulateListener{
-        public void onFieldsFilled(ArrayList<TextInputLayout> btn_txts_layout);
+    public interface onFieldsShownListener {
+        public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout);
     }
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        if (context instanceof onPopulateListener){
-            this.listener = (onPopulateListener) context;
+        if (context instanceof onFieldsShownListener){
+            this.listener = (onFieldsShownListener) context;
         }
     }
 
@@ -75,10 +74,21 @@ public class btnTxtOptions extends Fragment {
         this.btn3_field = view.findViewById(R.id.input_btn3_area);
         this.btn4_field = view.findViewById(R.id.input_btn4_area);
 
+
         setFieldsVisibility();
+
+        ArrayList<TextInputLayout> valid_fields = new ArrayList<>(
+                Arrays.asList(this.btn1_field, this.btn2_field,
+                        this.btn3_field, this.btn4_field)
+        );
+        listener.onFieldsShown(valid_fields);
+
     }
 
+
     private void setFieldsVisibility(){
+        if (this.num_btns_to_display == -1) return;
+
         if (this.num_btns_to_display >= 1){
             this.btn1_field.setVisibility(View.VISIBLE);
             if (this.num_btns_to_display >= 2){
@@ -91,5 +101,7 @@ public class btnTxtOptions extends Fragment {
                 }
             }
         }
+
+
     }
 }

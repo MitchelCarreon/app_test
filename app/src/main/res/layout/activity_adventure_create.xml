@@ -23,28 +23,32 @@
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
+                android:id="@+id/input_scenario_desc_area"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:focusable="true"
                 android:hint="Scenario description"
                 android:maxHeight="200dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="200">
+                app:counterMaxLength="200"
+                app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_scenario_desc"
-                    android:layout_width="370dp"
+                    android:layout_width="320dp"
                     android:layout_height="180dp"
-
                     android:gravity="start"
                     android:inputType="textMultiLine"
                     android:scrollbarStyle="insideInset"
                     android:scrollbars="vertical" />
             </com.google.android.material.textfield.TextInputLayout>
+
             <RadioGroup
                 android:id="@+id/input_scenario_type_radio_group"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:checkedButton="@id/input_scene_type_normal"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -69,6 +73,7 @@
                     android:layout_weight="1"
                     android:text="End" />
             </RadioGroup>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,6 +84,7 @@
                     android:id="@+id/num_btns_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:text="# of buttons: "
                     app:layout_constraintBottom_toBottomOf="@id/num_btns_dropdown_inputLayout"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -89,6 +95,7 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:errorEnabled="true"
                     app:layout_constraintLeft_toRightOf="@id/num_btns_label"
                     app:layout_constraintTop_toTopOf="parent"
                     app:startIconDrawable="@drawable/ic_baseline_drag_indicator_24">
@@ -108,7 +115,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_margin="30dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@android:color/darker_gray" />
+
             <FrameLayout
                 android:id="@+id/btn_txt_fields"
                 android:layout_width="wrap_content"
