@@ -53,18 +53,6 @@ public class AdventureGameActivity extends AppCompatActivity implements four_btn
             }
         });
 
-
-        // TEST BUTTON - FRAGMENT
-        this.binding.testBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                four_btns fragment = four_btns.newInstance(scenarios.get(1));
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ft.replace(R.id.game_btns_area, fragment);
-                ft.commit();
-            }
-        });
-
     }
 
 

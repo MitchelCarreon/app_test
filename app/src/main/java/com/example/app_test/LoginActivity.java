@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+import com.example.app_test.Utils.UserData;
 import com.example.app_test.databinding.ActivityMainBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -65,6 +66,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Login successful.", Toast.LENGTH_SHORT).show();
+                            UserData.init();
                             startActivity(intent);
                         } else {
                             Toast.makeText(LoginActivity.this, "Login failed. Check login details", Toast.LENGTH_SHORT).show();

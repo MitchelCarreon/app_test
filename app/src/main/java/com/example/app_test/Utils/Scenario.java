@@ -73,6 +73,8 @@ public class Scenario implements Parcelable {
         this.btn_paths = updated_btn_paths;
     }
 
+
+    // TODO: Set default values: scene_desc_txt, etc.
     public Scenario() {
         this.btn_txts = new HashMap<>();
         this.btn_txts.put("btn1_txt", "");
@@ -88,6 +90,7 @@ public class Scenario implements Parcelable {
 
         this.isEnding = false;
     }
+
 
     protected Scenario(Parcel in) {
         btn_txts = (HashMap<String, String>) in.readSerializable();

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- LoginActivity dimensions -->
     <dimen name="login_field_width">300dp</dimen>
     <dimen name="login_margin_field_small">7dp</dimen>
     <dimen name="login_margin_field">50dp</dimen>
     <dimen name="login_btn_margin">30dp</dimen>
 
-
+    <!-- SignupActivity dimensions -->
     <dimen name="signup_activity_padding">30dp</dimen>
     <dimen name="signup_img_margin">5dp</dimen>
     <dimen name="signup_fields_marginTop">15dp</dimen>
@@ -15,4 +16,9 @@
     <dimen name="signup_first_field_marginTop">15dp</dimen>
     <dimen name="signup_register_btn_width">200dp</dimen>
     <dimen name="signup_cv_margin_dist">70dp</dimen>
+
+    <!-- fragment_btn_txt_options dimensions -->
+    <dimen name="btnTxtOptions_fieldWidth">320dp</dimen>
+    <dimen name="btnTxtOptions_fieldHeight">120dp</dimen>
+
 </resources>
