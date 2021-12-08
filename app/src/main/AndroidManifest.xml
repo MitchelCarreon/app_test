@@ -10,12 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_test">
         <activity
+            android:name=".AdventureCreateActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LoginScreen"/>
+        <activity
+            android:name=".adventures.adventure_game_one.AdventureGameActivity"
+            android:theme="@style/Theme.LoginScreen" />
+        <activity
             android:name=".SignupActivity"
             android:exported="true"
-            android:theme="@style/Theme.LoginScreen" />
-        <!-- TODO: update themes of activities here. -->
+            android:theme="@style/Theme.LoginScreen" /> <!-- TODO: update themes of activities here. -->
         <activity
-            android:name=".adventures.Sample_adventure"
+            android:name=".adventures.ScenarioInitActivity"
             android:exported="true" />
         <activity
             android:name=".AdventureSelectActivity"
