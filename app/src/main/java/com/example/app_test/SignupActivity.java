@@ -86,7 +86,7 @@ public class SignupActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            db_reference.child(new_user.email).setValue(new_user)
+                            db_reference.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(new_user)
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
