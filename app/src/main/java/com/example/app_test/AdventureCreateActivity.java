@@ -16,9 +16,11 @@ import android.widget.Toast;
 
 
 import com.example.app_test.Utils.Scenario;
+import com.example.app_test.Utils.UserData;
 import com.example.app_test.databinding.ActivityAdventureCreateBinding;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.example.app_test.Utils.btnTxtOptions;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -42,7 +44,6 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         super.onCreate(savedInstanceState);
         this.binding = ActivityAdventureCreateBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
-
         this.scenarios = new ArrayList<>();
         initNumBtnDropDown();
 

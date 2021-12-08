@@ -1,5 +1,6 @@
 package com.example.app_test;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,13 +10,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.app_test.Utils.User;
+import com.example.app_test.Utils.UserData;
 import com.example.app_test.adapter.AdventureSelectAdapter;
 import com.example.app_test.adapter.Adventure_overview;
 import com.example.app_test.adventures.*;
 import com.example.app_test.adventures.adventure_game_one.AdventureGameActivity;
 import com.example.app_test.databinding.ActivityAdventureSelectBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class AdventureSelectActivity extends AppCompatActivity {
