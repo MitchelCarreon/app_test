@@ -4,21 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="20dp"
     android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:orientation="vertical"
     tools:context=".Utils.btnTxtOptions">
 
     <!-- TODO: Add chips dynamically.  -->
     <!-- TODO: Add chips. ChipGroup (within HorizontalScrollview) contains referenceable scenarios. -->
 
+
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn1_cv"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:padding="10dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn1_area"
@@ -27,12 +33,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="Button 1 Text"
-                android:visibility="visible"
                 app:counterEnabled="true"
-                app:errorEnabled="true"
                 app:counterMaxLength="100"
+                app:errorEnabled="true"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -43,20 +49,36 @@
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn2_cv"
+        android:visibility="gone"
+        android:backgroundTint="#E4E1E1"
+        android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn2_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 android:hint="Button 2 Text"
-                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
-                app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn1_area">
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn2_txt"
@@ -65,7 +87,22 @@
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn3_cv"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn3_area"
@@ -73,12 +110,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="Button 3 Text"
-                app:errorEnabled="true"
-                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
-                app:layout_constraintLeft_toLeftOf="@id/input_btn2_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn2_area">
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn3_txt"
@@ -86,19 +124,36 @@
                     android:layout_height="@dimen/btnTxtOptions_fieldHeight"
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btn4_cv"
+        android:visibility="gone"
+        android:backgroundTint="#E4E1E1"
+        android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:background="?attr/selectableItemBackground"
+            android:layout_height="match_parent"
+            android:padding="10dp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn4_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
                 android:hint="Button 4 Text"
-                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
-                app:layout_constraintLeft_toLeftOf="@id/input_btn3_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn3_area">
+                app:errorEnabled="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn4_txt"
@@ -106,7 +161,6 @@
                     android:layout_height="@dimen/btnTxtOptions_fieldHeight"
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 </LinearLayout>

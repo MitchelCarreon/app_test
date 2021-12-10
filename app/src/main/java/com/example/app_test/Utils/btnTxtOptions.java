@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.example.app_test.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -25,6 +26,7 @@ public class btnTxtOptions extends Fragment {
 
     public int num_btns_to_display;
     private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field;
+    private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv;
 
     private onFieldsShownListener listener;
 
@@ -75,6 +77,11 @@ public class btnTxtOptions extends Fragment {
         this.btn3_field = view.findViewById(R.id.input_btn3_area);
         this.btn4_field = view.findViewById(R.id.input_btn4_area);
 
+        this.btn1_cv = view.findViewById(R.id.btn1_cv);
+        this.btn2_cv = view.findViewById(R.id.btn2_cv);
+        this.btn3_cv = view.findViewById(R.id.btn3_cv);
+        this.btn4_cv = view.findViewById(R.id.btn4_cv);
+
 
         setFieldsVisibility();
 
@@ -91,13 +98,13 @@ public class btnTxtOptions extends Fragment {
         if (this.num_btns_to_display == -1) return;
 
         if (this.num_btns_to_display >= 1){
-            this.btn1_field.setVisibility(View.VISIBLE);
+            this.btn1_cv.setVisibility(View.VISIBLE);
             if (this.num_btns_to_display >= 2){
-                this.btn2_field.setVisibility(View.VISIBLE);
+                this.btn2_cv.setVisibility(View.VISIBLE);
                 if (this.num_btns_to_display >= 3){
-                    this.btn3_field.setVisibility(View.VISIBLE);
+                    this.btn3_cv.setVisibility(View.VISIBLE);
                     if (this.num_btns_to_display >= 4){
-                        this.btn4_field.setVisibility(View.VISIBLE);
+                        this.btn4_cv.setVisibility(View.VISIBLE);
                     }
                 }
             }
