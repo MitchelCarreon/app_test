@@ -65,7 +65,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 input_num_btns = Integer.parseInt(parent.getItemAtPosition(position).toString());
 
                 binding.btnTxtFields.setVisibility(View.VISIBLE);
-                Fragment fragment = btnTxtOptions.newInstance(input_num_btns);
+                Fragment fragment = btnTxtOptions.newInstance(input_num_btns, scenarios);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.btn_txt_fields, fragment);
                 ft.commit();
@@ -132,10 +132,13 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         this.binding.inputSceneTypeNormal.setChecked(true);
         this.binding.inputNumBtnsDropdown.setText("");
 
-        for (int i = 0; i < this.btn_txt_field_areas.size(); ++i){
-            EditText btn_txt_field = this.btn_txt_field_areas.get(i).getEditText();
-            if (btn_txt_field != null) btn_txt_field.setText("");
+        if (this.btn_txt_field_areas != null){
+            for (int i = 0; i < this.btn_txt_field_areas.size(); ++i){
+                EditText btn_txt_field = this.btn_txt_field_areas.get(i).getEditText();
+                if (btn_txt_field != null) btn_txt_field.setText("");
+            }
         }
+
 
         this.binding.inputScenarioDesc.requestFocus();
         this.binding.btnTxtFields.setVisibility(View.GONE);

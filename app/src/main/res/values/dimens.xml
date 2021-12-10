@@ -21,5 +21,6 @@
     <dimen name="btnTxtOptions_fieldWidth">320dp</dimen>
     <dimen name="btnTxtOptions_fieldHeight">120dp</dimen>
     <dimen name="btn_txt_options_cv_spacing">15dp</dimen>
+    <dimen name="dropdown_scene_ref_margin_top">5dp</dimen>
 
 </resources>

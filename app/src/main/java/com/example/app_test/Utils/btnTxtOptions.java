@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.example.app_test.R;
@@ -23,10 +25,14 @@ import java.util.Arrays;
 
 public class btnTxtOptions extends Fragment {
     public static final String NUM_BTNS_KEY = "NUM_BTNS";
+    public static final String SCENARIOS_KEY = "SCENARIOS";
+    public int num_btns_to_display; // FROM ACTIVITY. newInstance()
+    private ArrayList<Scenario> scenarios; // FROM ACTIVITY . newInstance()
 
-    public int num_btns_to_display;
+
     private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field;
     private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv;
+    private AutoCompleteTextView btn1_ref, btn2_ref, btn3_ref, btn4_ref;
 
     private onFieldsShownListener listener;
 
@@ -47,12 +53,13 @@ public class btnTxtOptions extends Fragment {
         }
     }
 
-    public static btnTxtOptions newInstance(int num_btns) {
+    public static btnTxtOptions newInstance(int num_btns, ArrayList<Scenario> scenarios) {
 
         btnTxtOptions fragment = new btnTxtOptions();
 
         Bundle args = new Bundle();
         args.putInt(NUM_BTNS_KEY, num_btns);
+        args.putParcelableArrayList(SCENARIOS_KEY, scenarios);
         fragment.setArguments(args);
 
         return fragment;
@@ -64,6 +71,7 @@ public class btnTxtOptions extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         this.num_btns_to_display = getArguments().getInt(NUM_BTNS_KEY);
+        this.scenarios = getArguments().getParcelableArrayList(SCENARIOS_KEY); // TO INIT DROP DOWN MENU WITH RECOMMENDATIONS.
 
         return inflater.inflate(R.layout.fragment_btn_txt_options, container, false);
     }
@@ -82,6 +90,11 @@ public class btnTxtOptions extends Fragment {
         this.btn3_cv = view.findViewById(R.id.btn3_cv);
         this.btn4_cv = view.findViewById(R.id.btn4_cv);
 
+        this.btn1_ref = view.findViewById(R.id.input_btn1_ref_field);
+        this.btn2_ref = view.findViewById(R.id.input_btn2_ref_field);
+        this.btn3_ref = view.findViewById(R.id.input_btn3_ref_field);
+        this.btn4_ref = view.findViewById(R.id.input_btn4_ref_field);
+
 
         setFieldsVisibility();
 
@@ -99,17 +112,36 @@ public class btnTxtOptions extends Fragment {
 
         if (this.num_btns_to_display >= 1){
             this.btn1_cv.setVisibility(View.VISIBLE);
+            initNumBtnDropDown(btn1_ref);
             if (this.num_btns_to_display >= 2){
                 this.btn2_cv.setVisibility(View.VISIBLE);
+                initNumBtnDropDown(btn2_ref);
                 if (this.num_btns_to_display >= 3){
                     this.btn3_cv.setVisibility(View.VISIBLE);
+                    initNumBtnDropDown(btn3_ref);
                     if (this.num_btns_to_display >= 4){
                         this.btn4_cv.setVisibility(View.VISIBLE);
+                        initNumBtnDropDown(btn4_ref);
                     }
                 }
             }
         }
 
+
+    }
+
+    // TODO: init dropdown menu with scenario recommendations -->
+    private void initNumBtnDropDown(AutoCompleteTextView drop_down_menu) {
+
+        ArrayList<String> scenario_descs = new ArrayList<>();
+        for (Scenario scenario : this.scenarios) {
+            scenario_descs.add(scenario.toString());
+        }
+
+        ArrayAdapter<String> arrayAdapter
+                = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.btn_options_dropdown_row, scenario_descs);
+        drop_down_menu.setAdapter(arrayAdapter);
+        drop_down_menu.setThreshold(1);
 
     }
 }
