@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:hint="Button 1 Text"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:counterEnabled="true"
                 app:errorEnabled="true"
                 app:counterMaxLength="100"
@@ -43,19 +43,7 @@
                     android:inputType="textMultiLine" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <HorizontalScrollView
-                android:id="@+id/btn1_scenRef_area"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn1_area">
 
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/btn1_sceneRef_chipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn2_area"
@@ -64,11 +52,11 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 android:hint="Button 2 Text"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/btn1_scenRef_area">
+                app:layout_constraintTop_toBottomOf="@id/input_btn1_area">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn2_txt"
@@ -77,20 +65,7 @@
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <HorizontalScrollView
-                android:id="@+id/btn2_scenRef_area"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
 
-                app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn2_area">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/btn2_sceneRef_chipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn3_area"
@@ -99,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Button 3 Text"
                 app:errorEnabled="true"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:layout_constraintLeft_toLeftOf="@id/input_btn2_area"
@@ -112,21 +87,6 @@
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <HorizontalScrollView
-                android:id="@+id/btn3_scenRef_area"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-
-                app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn3_area">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/btn3_sceneRef_chipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn4_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -134,7 +94,7 @@
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
                 android:hint="Button 4 Text"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:counterEnabled="true"
                 app:counterMaxLength="100"
                 app:layout_constraintLeft_toLeftOf="@id/input_btn3_area"
@@ -146,21 +106,6 @@
                     android:layout_height="@dimen/btnTxtOptions_fieldHeight"
                     android:gravity="start" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <HorizontalScrollView
-                android:id="@+id/btn4_scenRef_area"
-                android:layout_width="350dp"
-                android:layout_height="wrap_content"
-
-                app:layout_constraintLeft_toLeftOf="@id/input_btn1_area"
-                app:layout_constraintTop_toBottomOf="@id/input_btn4_area">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/btn4_sceneRef_chipGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></com.google.android.material.chip.ChipGroup>
-
-            </HorizontalScrollView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

@@ -34,6 +34,7 @@ public class btnTxtOptions extends Fragment {
 
     public interface onFieldsShownListener {
         public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout);
+
     }
 
     @Override

@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,7 +27,16 @@ import java.util.HashMap;
 import com.example.app_test.Utils.btnTxtOptions;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputLayout;
-
+/*
+* NOTE: The point of this Activity is to help the user determine the logic for his story and prevent logical errors.
+* Logical errors like scenarios with no buttons/options are the most common.
+*
+* Logic RULES:
+* - There can only be one beginning ("Begin" - scenario type)
+* - There can be multiple endings ("End" - scenario type)
+* - Other scenarios that don't have little to no constraints are ("Normal" - scenario type)
+* - Logical constraints should be minimal. Otherwise, the user might end up with a linear story (etc. no going back to scenarios, etc.)
+* */
 public class AdventureCreateActivity extends AppCompatActivity implements btnTxtOptions.onFieldsShownListener {
     private ActivityAdventureCreateBinding binding;
     public static final int INVALID_CHOICE = -1;
@@ -53,6 +64,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 input_num_btns = Integer.parseInt(parent.getItemAtPosition(position).toString());
 
+                binding.btnTxtFields.setVisibility(View.VISIBLE);
                 Fragment fragment = btnTxtOptions.newInstance(input_num_btns);
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.replace(R.id.btn_txt_fields, fragment);
@@ -62,7 +74,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         this.binding.addScenario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                binding.fabExpandMenuButton.collapse();
                 createScenarioFromInput();
                 System.out.println("Breakpoint here. Check scenario list's contents.");
             }
@@ -85,6 +97,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         });
 
     }
+
 
     private void createScenarioFromInput() {
         if (hasInvalidInput()) return;
@@ -115,8 +128,27 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
 
     private void clearFields() {
         Toast.makeText(AdventureCreateActivity.this, "Scenario added", Toast.LENGTH_SHORT).show();
+        this.binding.inputScenarioDesc.setText("");
+        this.binding.inputSceneTypeNormal.setChecked(true);
+        this.binding.inputNumBtnsDropdown.setText("");
 
+        for (int i = 0; i < this.btn_txt_field_areas.size(); ++i){
+            EditText btn_txt_field = this.btn_txt_field_areas.get(i).getEditText();
+            if (btn_txt_field != null) btn_txt_field.setText("");
+        }
 
+        this.binding.inputScenarioDesc.requestFocus();
+        this.binding.btnTxtFields.setVisibility(View.GONE);
+        collapseVirtualKeyboard();
+
+    }
+
+    private void collapseVirtualKeyboard(){
+        InputMethodManager inputManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private Boolean hasInvalidInput() {
