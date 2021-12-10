@@ -110,4 +110,15 @@
         app:layout_constraintGuide_begin="158dp" />
 
 
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/cyoa_txt"
+        android:text="@string/what_is_a_cyoa"
+        android:textColor="@color/cyoa_hyperlink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/login_scrn_btns_area"
+        app:layout_constraintRight_toRightOf="@id/login_scrn_btns_area" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

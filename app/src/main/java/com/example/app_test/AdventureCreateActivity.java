@@ -59,7 +59,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 ft.commit();
             }
         });
-        this.binding.addScenarioBtn.setOnClickListener(new View.OnClickListener() {
+        this.binding.addScenario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

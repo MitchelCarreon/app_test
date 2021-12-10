@@ -21,9 +21,9 @@
             <!--TODO: ADD ChipGroup here to display created scenarios -->
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_scenario_desc_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
-                android:id="@+id/input_scenario_desc_area"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:focusable="true"
@@ -128,16 +128,48 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_scenario_btn"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:layout_width="wrap_content"
+        android:id="@+id/fab_expand_menu_button"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_baseline_add_24"
-        app:fabSize="normal"
-        app:rippleColor="@color/red" />
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:fab_addButtonColorNormal="?attr/colorPrimary">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/finalize_adventure_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/fab_green_finalize"
+            app:fab_colorPressed="@color/fab_green_finalize_pressed"
+            app:fab_icon="@drawable/ic_baseline_flag_24"
+            app:fab_size="mini" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_scenario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/fab_blue_add"
+            app:fab_colorPressed="@color/fab_blue_add_pressed"
+            app:fab_icon="@drawable/ic_baseline_add_circle_24"
+            app:fab_size="mini"
+
+            app:fab_title="Add scenario" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/add_scenario_btn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:src="@drawable/ic_baseline_add_24"-->
+    <!--        app:fabSize="normal"-->
+    <!--        app:rippleColor="@color/red" />-->
 
 </RelativeLayout>

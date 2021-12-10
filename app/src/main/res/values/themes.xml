@@ -63,5 +63,10 @@
         <!--        <item name="colorOnSurface">#ffffff</item>-->
     </style>
 
+    <!-- Styles for fab menu labels . if nec. -->
+    <style name="fabby_fab">
+        <item name="android:background">@drawable/fab_menu_labels_bg</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 
 </resources>
