@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -30,7 +32,7 @@ public class btnTxtOptions extends Fragment {
     private ArrayList<Scenario> scenarios; // FROM ACTIVITY . newInstance()
 
 
-    private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field;
+    private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field; // PASSED TO ACTIVITY.
     private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv;
     private AutoCompleteTextView btn1_ref, btn2_ref, btn3_ref, btn4_ref;
 
@@ -41,8 +43,9 @@ public class btnTxtOptions extends Fragment {
     }
 
     public interface onFieldsShownListener {
-        public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout);
-
+        public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout,
+                                  ArrayList<AutoCompleteTextView> ref_drop_down_menus,
+                                    ArrayList<MaterialCardView> input_cvs);
     }
 
     @Override
@@ -80,6 +83,26 @@ public class btnTxtOptions extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initComponents(view);
+        setFieldsVisibility();
+
+        ArrayList<TextInputLayout> valid_fields = new ArrayList<>(
+                Arrays.asList(this.btn1_field, this.btn2_field,
+                        this.btn3_field, this.btn4_field)
+        );
+        ArrayList<AutoCompleteTextView> valid_ref_fields = new ArrayList<>(
+                Arrays.asList(this.btn1_ref, this.btn2_ref, this.btn3_ref, this.btn4_ref)
+        );
+        ArrayList<MaterialCardView> valid_cvs = new ArrayList<>(
+                Arrays.asList(this.btn1_cv, this.btn2_cv, this.btn3_cv, this.btn4_cv)
+        );
+
+
+        listener.onFieldsShown(valid_fields, valid_ref_fields, valid_cvs);
+
+    }
+
+    private void initComponents(View view){
         this.btn1_field = view.findViewById(R.id.input_btn1_area);
         this.btn2_field = view.findViewById(R.id.input_btn2_area);
         this.btn3_field = view.findViewById(R.id.input_btn3_area);
@@ -94,19 +117,7 @@ public class btnTxtOptions extends Fragment {
         this.btn2_ref = view.findViewById(R.id.input_btn2_ref_field);
         this.btn3_ref = view.findViewById(R.id.input_btn3_ref_field);
         this.btn4_ref = view.findViewById(R.id.input_btn4_ref_field);
-
-
-        setFieldsVisibility();
-
-        ArrayList<TextInputLayout> valid_fields = new ArrayList<>(
-                Arrays.asList(this.btn1_field, this.btn2_field,
-                        this.btn3_field, this.btn4_field)
-        );
-        listener.onFieldsShown(valid_fields);
-
     }
-
-
     private void setFieldsVisibility(){
         if (this.num_btns_to_display == -1) return;
 
@@ -126,9 +137,8 @@ public class btnTxtOptions extends Fragment {
                 }
             }
         }
-
-
     }
+
 
     // TODO: init dropdown menu with scenario recommendations -->
     private void initNumBtnDropDown(AutoCompleteTextView drop_down_menu) {
