@@ -23,6 +23,7 @@ import com.example.app_test.Utils.UserData;
 import com.example.app_test.databinding.ActivityAdventureCreateBinding;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import com.example.app_test.Utils.btnTxtOptions;
@@ -31,16 +32,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-/*
- * NOTE: The point of this Activity is to help the user determine the logic for his story and prevent logical errors.
- * Logical errors like scenarios with no buttons/options are the most common.
- *
- * Logic RULES:
- * - There can only be one beginning ("Begin" - scenario type)
- * - There can be multiple endings ("End" - scenario type)
- * - Other scenarios that don't have little to no constraints are ("Normal" - scenario type)
- * - Logical constraints should be minimal. Otherwise, the user might end up with a linear story (etc. no going back to scenarios, etc.)
- * */
+
 public class AdventureCreateActivity extends AppCompatActivity implements btnTxtOptions.onFieldsShownListener {
     private ActivityAdventureCreateBinding binding;
     public static final int INVALID_CHOICE = -1;
@@ -56,9 +48,6 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
     private ArrayList<AutoCompleteTextView> ref_drop_down_menus;
     private ArrayList<MaterialCardView> input_cvs_fragment;
 
-
-    // TEMP
-    private ArrayList<Integer> scene_ref_indices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,12 +121,6 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 this.scenario_to_add.btn_txts.replace(btn_txt_key, this.btn_txt_field_areas.get(i).getEditText().getText().toString());
             }
 
-
-            for (int i = 0; i < this.scene_ref_indices.size(); ++i){
-                String btn_dest_key = String.format("btn%d_dest", i + 1);
-                this.scenario_to_add.btn_paths.replace(btn_dest_key, this.scene_ref_indices.get(i));
-            }
-
         }
 
         // ADDING THE SCENARIO
@@ -172,7 +155,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    private Boolean hasInvalidInput() { // T_T
+    private Boolean hasInvalidInput() {
         Boolean hasInvalidInput = false;
 
         if (this.binding.inputScenarioDesc.getText().toString().isEmpty()) {
@@ -231,24 +214,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         this.ref_drop_down_menus = ref_drop_down_menus;
         this.input_cvs_fragment = input_cvs;
 
-
-
-        for (int i = 0; i < input_num_btns; ++i) {
-            ref_drop_down_menus.get(i).setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    String scenario_title = parent.getItemAtPosition(position).toString();
-                    scene_ref_indices = new ArrayList<>(input_num_btns);
-
-                    for (int j = 0; j < scenarios.size(); ++j) {
-                        if (scenarios.get(j).scene_desc_txt.equals(scenario_title)) {
-                            scene_ref_indices.add(j);
-                        }
-                    }
-                }
-            });
-        }
     }
-
-
 }
+
+
