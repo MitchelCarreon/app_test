@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="@id/btn1_ref_area" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/btn1_ref_area"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="200dp"
                 android:layout_marginTop="@dimen/dropdown_scene_ref_margin_top"
                 android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
                 app:layout_constraintLeft_toRightOf="@id/btn1_leads_to_label"
                 app:layout_constraintRight_toRightOf="parent">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn1_ref_field"
                     android:layout_width="match_parent"
                     android:ellipsize="end"
@@ -50,6 +50,9 @@
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_btn1_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -81,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
         android:backgroundTint="#E4E1E1"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -99,7 +102,7 @@
                 app:layout_constraintTop_toTopOf="@id/btn2_ref_area" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/btn2_ref_area"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="200dp"
                 android:layout_marginTop="@dimen/dropdown_scene_ref_margin_top"
                 android:layout_height="wrap_content"
@@ -107,7 +110,7 @@
                 app:layout_constraintLeft_toRightOf="@id/btn2_leads_to_label"
                 app:layout_constraintRight_toRightOf="parent">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn2_ref_field"
                     android:layout_width="match_parent"
                     android:ellipsize="end"
@@ -148,7 +151,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -166,7 +169,7 @@
                 app:layout_constraintTop_toTopOf="@id/btn3_ref_area" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/btn3_ref_area"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="200dp"
                 android:layout_marginTop="@dimen/dropdown_scene_ref_margin_top"
                 android:layout_height="wrap_content"
@@ -174,7 +177,7 @@
                 app:layout_constraintLeft_toRightOf="@id/btn3_leads_to_label"
                 app:layout_constraintRight_toRightOf="parent">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn3_ref_field"
                     android:layout_width="match_parent"
                     android:maxLines="1"
@@ -214,7 +217,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/btn_txt_options_cv_spacing"
         android:backgroundTint="#E4E1E1"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -232,7 +235,7 @@
                 app:layout_constraintTop_toTopOf="@id/btn4_ref_area" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/btn4_ref_area"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="200dp"
                 android:layout_marginTop="@dimen/dropdown_scene_ref_margin_top"
                 android:layout_height="wrap_content"
@@ -240,7 +243,7 @@
                 app:layout_constraintLeft_toRightOf="@id/btn4_leads_to_label"
                 app:layout_constraintRight_toRightOf="parent">
 
-                <AutoCompleteTextView
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_btn4_ref_field"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

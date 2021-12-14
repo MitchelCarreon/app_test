@@ -34,7 +34,7 @@ public class btnTxtOptions extends Fragment {
 
     private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field; // PASSED TO ACTIVITY. to get input.
     private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv; // PASSED TO ACTIVITY. to determine visibility.
-    private AutoCompleteTextView btn1_ref, btn2_ref, btn3_ref, btn4_ref; // PASSED TO ACTIVTY. to get input.
+    private TextInputEditText btn1_ref, btn2_ref, btn3_ref, btn4_ref; // PASSED TO ACTIVTY. to get input.
 
     private onFieldsShownListener listener;
 
@@ -44,7 +44,7 @@ public class btnTxtOptions extends Fragment {
 
     public interface onFieldsShownListener {
         public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout,
-                                  ArrayList<AutoCompleteTextView> ref_drop_down_menus,
+                                  ArrayList<TextInputEditText> btn_ref_fields,
                                     ArrayList<MaterialCardView> input_cvs);
     }
 
@@ -90,7 +90,7 @@ public class btnTxtOptions extends Fragment {
                 Arrays.asList(this.btn1_field, this.btn2_field,
                         this.btn3_field, this.btn4_field)
         );
-        ArrayList<AutoCompleteTextView> valid_ref_fields = new ArrayList<>(
+        ArrayList<TextInputEditText> valid_ref_fields = new ArrayList<>(
                 Arrays.asList(this.btn1_ref, this.btn2_ref, this.btn3_ref, this.btn4_ref)
         );
         ArrayList<MaterialCardView> valid_cvs = new ArrayList<>(
@@ -121,16 +121,16 @@ public class btnTxtOptions extends Fragment {
 
         if (this.num_btns_to_display >= 1){
             this.btn1_cv.setVisibility(View.VISIBLE);
-            initNumBtnDropDown(btn1_ref);
+//            initNumBtnDropDown(btn1_ref);
             if (this.num_btns_to_display >= 2){
                 this.btn2_cv.setVisibility(View.VISIBLE);
-                initNumBtnDropDown(btn2_ref);
+//                initNumBtnDropDown(btn2_ref);
                 if (this.num_btns_to_display >= 3){
                     this.btn3_cv.setVisibility(View.VISIBLE);
-                    initNumBtnDropDown(btn3_ref);
+//                    initNumBtnDropDown(btn3_ref);
                     if (this.num_btns_to_display >= 4){
                         this.btn4_cv.setVisibility(View.VISIBLE);
-                        initNumBtnDropDown(btn4_ref);
+//                        initNumBtnDropDown(btn4_ref);
                     }
                 }
             }
@@ -139,17 +139,17 @@ public class btnTxtOptions extends Fragment {
 
 
     // TODO: init dropdown menu with scenario "recommendations" -->
-    private void initNumBtnDropDown(AutoCompleteTextView drop_down_menu) {
-
-        ArrayList<String> scenario_descs = new ArrayList<>();
-        for (Scenario scenario : this.scenarios) {
-            scenario_descs.add(scenario.toString());
-        }
-
-        ArrayAdapter<String> arrayAdapter
-                = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.btn_options_dropdown_row, scenario_descs);
-        drop_down_menu.setAdapter(arrayAdapter);
-        drop_down_menu.setThreshold(1);
-
-    }
+//    private void initNumBtnDropDown(AutoCompleteTextView drop_down_menu) {
+//
+//        ArrayList<String> scenario_descs = new ArrayList<>();
+//        for (Scenario scenario : this.scenarios) {
+//            scenario_descs.add(scenario.toString());
+//        }
+//
+//        ArrayAdapter<String> arrayAdapter
+//                = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.btn_options_dropdown_row, scenario_descs);
+//        drop_down_menu.setAdapter(arrayAdapter);
+//        drop_down_menu.setThreshold(1);
+//
+//    }
 }

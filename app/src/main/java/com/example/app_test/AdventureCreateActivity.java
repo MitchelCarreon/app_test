@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -20,21 +19,16 @@ import android.widget.Toast;
 
 
 import com.example.app_test.Utils.Scenario;
-import com.example.app_test.Utils.UserData;
 import com.example.app_test.databinding.ActivityAdventureCreateBinding;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 import com.example.app_test.Utils.btnTxtOptions;
 import com.google.android.material.card.MaterialCardView;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -51,7 +45,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
 
     //FROM FRAGMENT
     private ArrayList<TextInputLayout> btn_txt_field_areas;
-    private ArrayList<AutoCompleteTextView> ref_drop_down_menus;
+    private ArrayList<TextInputEditText> btn_ref_fields;
     private ArrayList<MaterialCardView> input_cvs_fragment;
 
 
@@ -161,19 +155,19 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
             }
 
 
-            for (int i = 0; i < this.ref_drop_down_menus.size(); ++i){
+            for (int i = 0; i < this.btn_ref_fields.size(); ++i){
 
                 String btn_ref_key = String.format("btn%d_dest", i + 1);
-                String input_btn_ref_desc = this.ref_drop_down_menus.get(i).getText().toString();
+                String input_btn_ref_desc = this.btn_ref_fields.get(i).getText().toString();
 
-                int btn_ref_index = -1;
-                for (int j = 0; j < this.scenarios.size(); ++j){
-                    if (this.scenarios.get(j).scene_desc_txt.equals(input_btn_ref_desc)){
-                        btn_ref_index = j;
-                        break;
-                    }
-                }
-                this.scenario_to_add.btn_paths.replace(btn_ref_key, btn_ref_index);
+//                int btn_ref_index = -1; // used for dropdown menu previously
+//                for (int j = 0; j < this.scenarios.size(); ++j){
+//                    if (this.scenarios.get(j).scene_desc_txt.equals(input_btn_ref_desc)){
+//                        btn_ref_index = j;
+//                        break;
+//                    }
+//                }
+                if (!input_btn_ref_desc.equals("")) this.scenario_to_add.btn_paths.replace(btn_ref_key, Integer.parseInt(input_btn_ref_desc));
 
             }
         }
@@ -194,6 +188,11 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 EditText btn_txt_field = this.btn_txt_field_areas.get(i).getEditText();
                 if (btn_txt_field != null) btn_txt_field.setText("");
             }
+        }
+
+        for (int i = 0 ; i < this.btn_ref_fields.size(); ++i){
+            EditText btn_ref_field = this.btn_ref_fields.get(i);
+            if (btn_ref_field != null) btn_ref_field.setText("");
         }
 
         this.binding.inputScenarioDesc.requestFocus();
@@ -241,6 +240,16 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                             hasInvalidInput = true;
                         } else this.btn_txt_field_areas.get(i).setError(null);
                     }
+
+
+                    EditText btn_ref_edit_txt = this.btn_ref_fields.get(i);
+                    TextInputLayout inputLayout = (TextInputLayout) btn_ref_edit_txt.getParent().getParent();
+                    if (btn_ref_edit_txt != null){
+                        if (btn_ref_edit_txt.getText().toString().isEmpty()){
+                            inputLayout.setError("*Required");
+                            hasInvalidInput = true;
+                        } else inputLayout.setError(null);
+                    }
                     // TODO: nothing to reference to
 //                    TextInputLayout ref_layout = (TextInputLayout) this.ref_drop_down_menus.get(i).getParent().getParent();
 //                    if (this.ref_drop_down_menus.get(i).getText().toString().isEmpty()){
@@ -270,10 +279,10 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
 
     @Override
     public void onFieldsShown(ArrayList<TextInputLayout> btn_txts_layout,
-                              ArrayList<AutoCompleteTextView> ref_drop_down_menus,
+                              ArrayList<TextInputEditText> btn_ref_fields,
                               ArrayList<MaterialCardView> input_cvs) {
         this.btn_txt_field_areas = btn_txts_layout;
-        this.ref_drop_down_menus = ref_drop_down_menus;
+        this.btn_ref_fields = btn_ref_fields;
         this.input_cvs_fragment = input_cvs;
 
     }
