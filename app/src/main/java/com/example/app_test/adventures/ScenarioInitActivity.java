@@ -70,7 +70,6 @@ public class ScenarioInitActivity extends AppCompatActivity {
         while (reader.hasNext()) {
             input_txt = reader.next();
 
-
             if (input_txt.matches("TITLE:.*") || input_txt.matches("ADV_DESC:.*")) continue;
 
             if (input_txt.matches("<SCENARIO[0-9]*>")) {
@@ -83,32 +82,28 @@ public class ScenarioInitActivity extends AppCompatActivity {
                 continue;
             }
 
-            if (scene != null && input_txt.matches("\nbtn[0-4]_txt: (.*)")) {
+            if (scene != null && input_txt.matches("btn[0-4]_txt:.*")) {
                 scene.btn_txts
                         .replace(input_txt.substring(0, input_txt.indexOf(':'))
                                 , input_txt.substring(input_txt.indexOf(':') + 1)
                                         .trim().replaceAll("^\"|\"$", ""));
-            } else if (input_txt.matches("\ndesc_txt: (.*)")) {
+            } else if (input_txt.matches("desc_txt:.*")) {
                 scene.scene_desc_txt
                         = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
-
             } else if (input_txt.matches("btn[0-4]_dest:.*")) {
-
                 scene.btn_paths
                         .replace(input_txt.substring(0, input_txt.indexOf(':'))
                                 , Integer
                                         .parseInt(input_txt.substring(input_txt.indexOf(':') + 1).
                                                 trim().replaceAll("^\"|\"$", "")));
-
             } else if (input_txt.matches("end_txt:.*")) {
-
                 scene.scene_desc_txt = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
                 scene.isEnding = true;
             }
 
-            if (input_txt.matches("\n</SCENARIO[0-9]>\n\n(.*)\n(.*)")) {
+            if (input_txt.matches("</SCENARIO[0-9]*>")) {
                 determineBtnType(scene);
                 scenarios_dynamic.add(scene);
             }

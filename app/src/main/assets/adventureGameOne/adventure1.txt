@@ -2,7 +2,7 @@ TITLE: Test adventure
 ADV_DESC: This is a sample adventure for testing.
 <SCENARIO0>
 btn1_txt: "Leads to scenario 1";
-btn2_txt: "Leads to scenario 3";
+btn2_txt: "Leads to scenario 3"
 btn1_dest: 1;
 btn2_dest: 3;
 desc_txt: "This is scenario 0";
