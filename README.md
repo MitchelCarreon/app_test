@@ -17,7 +17,7 @@ An Android app dedicated to CYOA (Create Your Own Adventure). A tool to make and
 
 ## Issues
 - [ ] Non-functioning icons in bottom app bar in the *Adventure Select* screen :unamused:
-- [ ] Help/Recommender tool for checking valid button references during *Adventure Create* :expressionless:	
+- [ ] No recommender tool for checking valid button references during *Adventure Create* :expressionless:	
 - [ ] Buttons referencing inexistent scenarios aren't checked. :nauseated_face:
 - [ ] User-created adventures are saved locally but not remotely in database. 	:sleepy:
  
