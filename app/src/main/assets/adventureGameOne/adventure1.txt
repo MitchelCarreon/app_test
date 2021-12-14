@@ -8,8 +8,8 @@ desc_txt: "This is scenario 0";
 
 <SCENARIO1>
 btn1_txt: "Leads to scenario 2";
-desc_txt: "This is scenario 1";
 btn1_dest: 2;
+desc_txt: "This is scenario 1";
 </SCENARIO1>
 
 <SCENARIO2>
@@ -20,8 +20,8 @@ desc_txt: "This is scenario 2";
 
 <SCENARIO3>
 btn1_txt: "Leads to scenario 4";
-desc_txt: "This is scenario 3";
 btn1_dest: 4;
+desc_txt: "This is scenario 3";
 </SCENARIO3>
 
 <SCENARIO4>

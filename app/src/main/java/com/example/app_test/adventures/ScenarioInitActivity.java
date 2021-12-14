@@ -51,44 +51,45 @@ public class ScenarioInitActivity extends AppCompatActivity {
 
         // READING INPUT FROM TXT
         while (reader.hasNext()) {
-            input_txt = reader.next();
+            if (!input_txt.startsWith("<SCENARIO") || input_txt.startsWith("<SCENARIO0>"))
+                input_txt = reader.next();
 
             if (input_txt.matches("<SCENARIO[0-9]>\n(.*)")) {
                 scene = new Scenario();
-                continue;
+                input_txt = input_txt.trim().replaceFirst("<SCENARIO[0-9]>", "");
             }
 
             if (input_txt.equals("")) {
                 reader.nextLine();
                 continue;
             }
-
-            if (scene != null && input_txt.matches("\nbtn[0-4]_txt: (.*)")) {
+            if (scene != null && input_txt.matches("\nbtn[0-4]_txt:(.*)")) {
                 scene.btn_txts
-                        .replace(input_txt.substring(0, input_txt.indexOf(':'))
+                        .replace(input_txt.substring(0, input_txt.indexOf(':')).trim().replaceAll("\"|^|\n|\"", "")
                                 , input_txt.substring(input_txt.indexOf(':') + 1)
-                                        .trim().replaceAll("^\"|\"$", ""));
-            } else if (input_txt.matches("\ndesc_txt: (.*)")) {
+                                        .trim().replaceAll("\"|^|\n|\"", ""));
+            } else if (input_txt.matches("\ndesc_txt:(.*)")) {
                 scene.scene_desc_txt
                         = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
             }
-            else if (input_txt.matches("\nbtn[0-4]_dest: (.*)")){
+            else if (input_txt.matches("\nbtn[0-4]_dest:(.*)")){
                 scene.btn_paths
-                        .replace(input_txt.substring(0, input_txt.indexOf(':'))
+                        .replace(input_txt.substring(0, input_txt.indexOf(':')).trim().replaceAll("\"|^|\n|\"", "")
                                 , Integer
                                         .parseInt(input_txt.substring(input_txt.indexOf(':') + 1).
-                                                trim().replaceAll("^\"|\"$", "")));
+                                                trim().replaceAll("\"|^|\n|\"", "")));
             }
-            else if (input_txt.matches("\nend_txt:.*")){
+            else if (input_txt.matches("\nend_txt:(.*)")){
                 scene.scene_desc_txt = input_txt.substring(input_txt.indexOf(":") + 1)
-                        .trim().replaceAll("^\"|\"$", "");
+                        .trim().replaceAll("\"|^|\n|\"", "");
                 scene.isEnding = true;
             }
 
             if (input_txt.matches("\n</SCENARIO[0-9]>\n\n(.*)\n(.*)")) {
                 determineBtnType(scene);
                 scenarios_dynamic.add(scene);
+                input_txt = input_txt.substring(15);
             }
         }
 

@@ -1,0 +1,29 @@
+<SCENARIO0>
+btn1_txt: "Go left";
+btn2_txt: "Go right";
+btn1_dest: 1;
+btn2_dest: 3;
+desc_txt: "You stumble upon a cave, and hear the faint screams of a child. You step in to find two entrances.";
+</SCENARIO0>
+
+<SCENARIO1>
+btn1_txt: "Poke the bear";
+btn1_dest: 2;
+desc_txt: "You head into a dark corridor of the cave. After much walking, you come out into a vast open where a bear lays sleeping.";
+</SCENARIO1>
+
+<SCENARIO2>
+btn1_txt: "Go Back";
+btn1_dest: 0;
+desc_txt: "You poke the bear, and the poke begins to wake it. You decide against fighting it.";
+</SCENARIO2>
+
+<SCENARIO3>
+btn1_txt: "Rescue the girl";
+btn1_dest: 4;
+desc_txt: "As you head right, you find a indention in the wall leading to a candle lit cavern. A girl sits weeping.";
+</SCENARIO3>
+
+<SCENARIO4>
+end_txt: "You save the girl and carry her back out. You are a hero.";
+</SCENARIO4>
