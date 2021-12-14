@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.widget.Toast;
 
 import com.example.app_test.AdventureSelectActivity;
 import com.example.app_test.Utils.Scenario;
@@ -24,6 +22,7 @@ import java.util.Scanner;
 public class ScenarioInitActivity extends AppCompatActivity {
     private ActivityScenarioInitBinding binding;
     public static final String SCENARIOS_KEY = "SCENARIOS";
+    private String SCENARIO_LOAD = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +30,8 @@ public class ScenarioInitActivity extends AppCompatActivity {
         this.binding = ActivityScenarioInitBinding.inflate(getLayoutInflater());
         setContentView(this.binding.getRoot());
 
-
+        Intent i = getIntent();
+        SCENARIO_LOAD = i.getStringExtra("file name");
         // INTENT
         Intent intent = new Intent(this, AdventureGameActivity.class);
 
@@ -39,7 +39,7 @@ public class ScenarioInitActivity extends AppCompatActivity {
         InputStream in_stream = null;
         try {
             in_stream =
-                    getApplicationContext().getAssets().open("adventureGameOne/adventure1.txt");
+                    getApplicationContext().getAssets().open("adventureGameOne/" + SCENARIO_LOAD);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,6 +90,9 @@ public class ScenarioInitActivity extends AppCompatActivity {
                 determineBtnType(scene);
                 scenarios_dynamic.add(scene);
                 input_txt = input_txt.substring(15);
+            } else if (input_txt.matches("\n</SCENARIO[0-9]>(.*)")){
+                determineBtnType(scene);
+                scenarios_dynamic.add(scene);
             }
         }
 

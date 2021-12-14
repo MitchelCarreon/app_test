@@ -58,7 +58,8 @@ public class AdventureSelectActivity extends AppCompatActivity {
                     @Override
                     public void onItemClick(int position) throws ClassNotFoundException {
                         Intent intent = new Intent(getBaseContext(),
-                                adventures.get(position).getActivity_class_name());
+                                ScenarioInitActivity.class);
+                        intent.putExtra("file name", "adventure" + String.valueOf(position) + ".txt");
                         startActivity(intent);
                     }
                 }

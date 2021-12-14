@@ -1,0 +1,29 @@
+<SCENARIO0>
+btn1_txt: "Leads to scenario 1";
+btn2_txt: "Leads to scenario 3";
+btn1_dest: 1;
+btn2_dest: 3;
+desc_txt: "This is scenario 0";
+</SCENARIO0>
+
+<SCENARIO1>
+btn1_txt: "Leads to scenario 2";
+btn1_dest: 2;
+desc_txt: "This is scenario 1";
+</SCENARIO1>
+
+<SCENARIO2>
+btn1_txt: "leads to scenario 0";
+btn1_dest: 0;
+desc_txt: "This is scenario 2";
+</SCENARIO2>
+
+<SCENARIO3>
+btn1_txt: "Leads to scenario 4";
+btn1_dest: 4;
+desc_txt: "This is scenario 3";
+</SCENARIO3>
+
+<SCENARIO4>
+end_txt: "ENDING";
+</SCENARIO4>
