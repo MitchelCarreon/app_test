@@ -65,13 +65,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
+
             }
         });
     }
 
     private void deleteFile(){ // used for testing
         File dir = getFilesDir();
-        File file = new File(dir,  "t.txt"); // name of file here. (i.e. adventure title + ".txt")
+        File file = new File(dir,  "test title.txt"); // name of file here. (i.e. adventure title + ".txt")
         boolean deleted = file.delete();
     }
 
