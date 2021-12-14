@@ -2,9 +2,7 @@
 An android app dedicated to CYOA (Create Your Own Adventure). This serves as a tool to make text-based games.
 
 
---------------------------------------
---------ADVENTURE CREATION------------
---------------------------------------
+ADVENTURE CREATION
 NOTES:
 - Provide input for all fields. Fields that are greyed out aren't required.
 
