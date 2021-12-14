@@ -14,6 +14,8 @@ import com.example.app_test.databinding.ActivityScenarioInitBinding;
 
 
 // IO STUFF
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -26,6 +28,13 @@ public class ScenarioInitActivity extends AppCompatActivity {
     public static final String SCENARIOS_KEY = "SCENARIOS";
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        Intent intent = new Intent(this, AdventureSelectActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.binding = ActivityScenarioInitBinding.inflate(getLayoutInflater());
@@ -36,10 +45,16 @@ public class ScenarioInitActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AdventureGameActivity.class);
 
         //GETTING INPUT FROM TXT FILE
-        InputStream in_stream = null;
+//        InputStream in_stream = null;
+        FileInputStream in_stream = null;
+        // TODO: new shtuff. cant write to assets folder. :(
+        File path = getApplicationContext().getFilesDir();
+        File readFrom = new File(path, "temp.txt");
+
         try {
-            in_stream =
-                    getApplicationContext().getAssets().open("adventureGameOne/adventure1.txt");
+//            in_stream =
+//                    getApplicationContext().getAssets().open("adventureGameOne/adventure1.txt");
+            in_stream = new FileInputStream(readFrom);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -72,15 +87,13 @@ public class ScenarioInitActivity extends AppCompatActivity {
                 scene.scene_desc_txt
                         = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
-            }
-            else if (input_txt.matches("btn[0-4]_dest:.*")){
+            } else if (input_txt.matches("btn[0-4]_dest:.*")) {
                 scene.btn_paths
                         .replace(input_txt.substring(0, input_txt.indexOf(':'))
                                 , Integer
                                         .parseInt(input_txt.substring(input_txt.indexOf(':') + 1).
                                                 trim().replaceAll("^\"|\"$", "")));
-            }
-            else if (input_txt.matches("end_txt:.*")){
+            } else if (input_txt.matches("end_txt:.*")) {
                 scene.scene_desc_txt = input_txt.substring(input_txt.indexOf(":") + 1)
                         .trim().replaceAll("^\"|\"$", "");
                 scene.isEnding = true;
@@ -93,52 +106,55 @@ public class ScenarioInitActivity extends AppCompatActivity {
         }
 
         ArrayList<Integer> scenario_num_references =
-       setScenarioNumReferences(scenarios_dynamic);
+                setScenarioNumReferences(scenarios_dynamic);
 
         // PASS PARCELABLE TO NEXT ACTIVITY
         intent.putParcelableArrayListExtra(SCENARIOS_KEY, scenarios_dynamic);
 
+        // TODO: dont show adventure if logic is broken.
+//        if (!hasExceededReferences(scenarios_dynamic, scenario_num_references)) {
+//            startActivity(intent);
+//            Toast.makeText(ScenarioInitActivity.this, "", Toast.LENGTH_SHORT).show();
+//            finish();
+//        } else {
+//            Intent backToAdvSelect = new Intent(this, AdventureSelectActivity.class);
+//            startActivity(backToAdvSelect);
+//        }
 
-        if (!hasExceededReferences(scenarios_dynamic, scenario_num_references)){
-            startActivity(intent);
-            finish();
-        }
-        else {
-            Intent backToAdvSelect = new Intent(this, AdventureSelectActivity.class);
-            startActivity(backToAdvSelect);
-        }
+        startActivity(intent);
 
     }
 
 
     // TODO: FIX hasExceededReferences()??
-    private Boolean hasExceededReferences(ArrayList<Scenario> scenarios_dynamic, ArrayList<Integer> scenario_num_references){
+    private Boolean hasExceededReferences(ArrayList<Scenario> scenarios_dynamic, ArrayList<Integer> scenario_num_references) {
 
         // special case for beginning scenario
-        if (scenarios_dynamic.get(0).num_references_to >= scenarios_dynamic.get(0).btn_type){
+        if (scenarios_dynamic.get(0).num_references_to >= scenarios_dynamic.get(0).btn_type) {
             return true;
         }
-        for (int i = 1; i < scenarios_dynamic.size(); ++i){
+        for (int i = 1; i < scenarios_dynamic.size(); ++i) {
 
             // # of references_to_scenario CANNOT BE greater than # of buttons_in_scenario
-            if (!scenarios_dynamic.get(i).isEnding && (scenarios_dynamic.get(i).num_references_to > scenarios_dynamic.get(i).btn_type) ){
+            if (!scenarios_dynamic.get(i).isEnding && (scenarios_dynamic.get(i).num_references_to > scenarios_dynamic.get(i).btn_type)) {
                 return true;
             }
         }
         return false;
     }
-    private ArrayList<Integer> setScenarioNumReferences(ArrayList<Scenario> scenarios_dynamic){
+
+    private ArrayList<Integer> setScenarioNumReferences(ArrayList<Scenario> scenarios_dynamic) {
 
         ArrayList<Integer> scenario_references = new ArrayList<Integer>();
-        for (int i =0; i < scenarios_dynamic.size(); ++i){
+        for (int i = 0; i < scenarios_dynamic.size(); ++i) {
             Scenario curr_scenario = scenarios_dynamic.get(i);
 
-            for (Integer value : curr_scenario.btn_paths.values()){
+            for (Integer value : curr_scenario.btn_paths.values()) {
                 scenario_references.add(value);
             }
         }
 
-        for (int i = 0; i < scenarios_dynamic.size(); ++i){
+        for (int i = 0; i < scenarios_dynamic.size(); ++i) {
             int count = Collections
                     .frequency(scenario_references, i);
             scenarios_dynamic.get(i).num_references_to = count;
@@ -146,9 +162,10 @@ public class ScenarioInitActivity extends AppCompatActivity {
 
         return scenario_references;
     }
-    private void determineBtnType(Scenario scene){
+
+    private void determineBtnType(Scenario scene) {
         int btnType = 4;
-        for (String value : scene.btn_txts.values()){
+        for (String value : scene.btn_txts.values()) {
             if (value.equals("") || value.equals("0")) btnType--;
         }
         scene.btn_type = btnType;
