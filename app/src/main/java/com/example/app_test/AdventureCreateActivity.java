@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -22,9 +23,14 @@ import com.example.app_test.Utils.Scenario;
 import com.example.app_test.Utils.UserData;
 import com.example.app_test.databinding.ActivityAdventureCreateBinding;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.example.app_test.Utils.btnTxtOptions;
 import com.google.android.material.card.MaterialCardView;
@@ -93,6 +99,22 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                     binding.btnTxtFields.setEnabled(true);
                     binding.btnTxtFields.setVisibility(View.VISIBLE);
                 }
+            }
+        });
+
+        this.binding.finalizeAdventureBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (scenarios.size() >= 2){
+                    try {
+                        writeToFile("temp");
+                        Toast.makeText(AdventureCreateActivity.this, "Adventure created!", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else Toast.makeText
+                        (AdventureCreateActivity.this, "Must at least contain 2 scenarios", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -237,6 +259,39 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         this.ref_drop_down_menus = ref_drop_down_menus;
         this.input_cvs_fragment = input_cvs;
 
+    }
+
+    @SuppressLint("DefaultLocale")
+    private void writeToFile(String file_name) throws IOException {
+        file_name += ".txt";
+        File path = getApplicationContext().getFilesDir();
+        FileOutputStream writer = new FileOutputStream(new File(path, file_name));
+
+        String formattedTxt = "";
+        for (int i = 0 ; i < this.scenarios.size(); ++i){
+            formattedTxt += String.format("<SCENARIO%d>\r\n", i);
+            Scenario currScenario = this.scenarios.get(i);
+
+            if (currScenario.isEnding) formattedTxt += String.format("end_txt: \"%s\";\r\n", currScenario.scene_desc_txt);
+            else formattedTxt += String.format("desc_txt: \"%s\";\r\n", currScenario.scene_desc_txt);
+
+            for (Map.Entry<String, String> entry : currScenario.btn_txts.entrySet()){ // BTN_TXTS
+                if (!entry.getValue().equals("")){
+                    formattedTxt += String.format("%s:\"%s\";\r\n", entry.getKey(), entry.getValue());
+                }
+            }
+
+            for (Map.Entry<String, Integer> entry : currScenario.btn_paths.entrySet()){ // BTN_PATHS
+                if (!entry.getValue().equals(-1)){
+                    formattedTxt += String.format("%s:%d;\r\n", entry.getKey(), entry.getValue());
+                }
+            }
+
+            formattedTxt += String.format("</SCENARIO%d>\r\n", i);
+            writer.write(formattedTxt.getBytes());
+            formattedTxt = "";
+        }
+        writer.close();
     }
 }
 

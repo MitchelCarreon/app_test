@@ -71,7 +71,6 @@ public class AdventureSelectActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Menu bar clicked", Toast.LENGTH_SHORT).show();
             }
         });
-
         this.binding.btnAdvCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,16 +84,15 @@ public class AdventureSelectActivity extends AppCompatActivity {
     private List<Adventure_overview> getAvailableAdventures(){
         List<Adventure_overview> adventures = new ArrayList<Adventure_overview>();
 
-        // ADD adventures here. Adventure generator
+
 
         adventures.add(new Adventure_overview(this,
-                "Example title1", "Example desc1"
+                "Example title1 - TEST", "Example desc1 - TEST"
         , ScenarioInitActivity.class,  R.drawable.ic_launcher_foreground));
 
-//        adventures.add(new Adventure_overview(this,
-//                "Example title2", "Example desc2", ScenarioInitActivity.class,  R.drawable.ic_launcher_background));
+        //
         adventures.add(new Adventure_overview(this,
-                "Example title2", "Example desc2", AdventureGameActivity.class,  R.drawable.ic_launcher_background));
+                "Example title2", "Example desc2", ScenarioInitActivity.class,  R.drawable.ic_launcher_background));
 
         return adventures;
     }
