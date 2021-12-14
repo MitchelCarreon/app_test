@@ -58,20 +58,20 @@ public class LoginActivity extends AppCompatActivity {
         this.binding.cyoaTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
-//                intent.putExtra(SearchManager.QUERY, getResources().getString(R.string.what_is_a_cyoa).toString());
-////                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); good feature
-//                if (!v.isSelected()) v.setSelected(true);
-//
-//                startActivity(intent);
-                deleteFile();
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, getResources().getString(R.string.what_is_a_cyoa).toString());
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); good feature
+                if (!v.isSelected()) v.setSelected(true);
+
+                startActivity(intent);
+
             }
         });
     }
 
     private void deleteFile(){ // used for testing
         File dir = getFilesDir();
-        File file = new File(dir, "temp.txt"); // name of file here. (i.e. adventure title + ".txt")
+        File file = new File(dir,  "t.txt"); // name of file here. (i.e. adventure title + ".txt")
         boolean deleted = file.delete();
     }
 

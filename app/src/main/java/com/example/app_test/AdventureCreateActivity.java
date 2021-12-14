@@ -241,12 +241,12 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                             hasInvalidInput = true;
                         } else this.btn_txt_field_areas.get(i).setError(null);
                     }
-
-                    TextInputLayout ref_layout = (TextInputLayout) this.ref_drop_down_menus.get(i).getParent().getParent();
-                    if (this.ref_drop_down_menus.get(i).getText().toString().isEmpty()){
-                        ref_layout.setError("*Required");
-                        hasInvalidInput = true;
-                    } else ref_layout.setError(null);
+                    // TODO: nothing to reference to
+//                    TextInputLayout ref_layout = (TextInputLayout) this.ref_drop_down_menus.get(i).getParent().getParent();
+//                    if (this.ref_drop_down_menus.get(i).getText().toString().isEmpty()){
+//                        ref_layout.setError("*Required");
+//                        hasInvalidInput = true;
+//                    } else ref_layout.setError(null);
                 }
             }
         } else hasInvalidInput = true;

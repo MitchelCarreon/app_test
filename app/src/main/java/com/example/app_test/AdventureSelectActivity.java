@@ -53,6 +53,16 @@ public class AdventureSelectActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        try {
+            initAdventureSelectScreen();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void initAdventureSelectScreen() throws FileNotFoundException {
         List<Adventure_overview> adventures;
         adventures = getAvailableAdventures();
@@ -125,14 +135,6 @@ public class AdventureSelectActivity extends AppCompatActivity {
                     , ScenarioInitActivity.class, R.drawable.ic_launcher_foreground));
 
         }
-
-
-//        adventures.add(new Adventure_overview(this,
-//                "Example title1 - TEST", "Example desc1 - TEST"
-//        , ScenarioInitActivity.class,  R.drawable.ic_launcher_foreground));
-
-//        adventures.add(new Adventure_overview(this,
-//                "Example title2", "Example desc2", ScenarioInitActivity.class,  R.drawable.ic_launcher_background));
 
         return adventures;
     }
