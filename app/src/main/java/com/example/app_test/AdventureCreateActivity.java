@@ -55,6 +55,10 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
     private ArrayList<MaterialCardView> input_cvs_fragment;
 
 
+    // TITLE AND DESCRIPTION of Adventure
+    String title_adv = "Adventure title";
+    String desc_adv = "Adventure description";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +67,20 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         this.scenarios = new ArrayList<>();
         initNumBtnDropDown();
 
+        this.binding.setAdventureTitleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if (binding.adventureDescField.getText() != null){
+                    desc_adv = binding.adventureDescField.getText().toString();
+                }
+                if (binding.adventureTitleField.getText() != null){
+                    title_adv = binding.adventureTitleField.getText().toString();
+                }
+                binding.adventureDescAndTitleArea.setVisibility(View.GONE);
+                binding.titleAndDescriptionDivider.setVisibility(View.GONE);
+            }
+        });
         this.binding.inputNumBtnsDropdown.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -107,7 +124,7 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
             public void onClick(View v) {
                 if (scenarios.size() >= 2){
                     try {
-                        writeToFile("temp");
+                        writeToFile(title_adv);
                         Toast.makeText(AdventureCreateActivity.this, "Adventure created!", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -266,6 +283,9 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         file_name += ".txt";
         File path = getApplicationContext().getFilesDir();
         FileOutputStream writer = new FileOutputStream(new File(path, file_name));
+
+        String title_and_desc_adv = String.format("TITLE:\"%s\"\r\nADV_DESC:\"%s\"\r\n", title_adv, desc_adv);
+        writer.write(title_and_desc_adv.getBytes());
 
         String formattedTxt = "";
         for (int i = 0 ; i < this.scenarios.size(); ++i){

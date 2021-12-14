@@ -28,7 +28,7 @@ public class ScenarioInitActivity extends AppCompatActivity {
     public static final String SCENARIOS_KEY = "SCENARIOS";
 
     @Override
-    protected void onRestart() {
+    protected void onRestart() { // BACK BUTTON WILL LEAD TO LOADING PAGE FOREVER.
         super.onRestart();
         Intent intent = new Intent(this, AdventureSelectActivity.class);
         startActivity(intent);
@@ -46,15 +46,17 @@ public class ScenarioInitActivity extends AppCompatActivity {
 
         //GETTING INPUT FROM TXT FILE
 //        InputStream in_stream = null;
-        FileInputStream in_stream = null;
-        // TODO: new shtuff. cant write to assets folder. :(
+        FileInputStream in_stream = null; // TODO: the real one.
+
         File path = getApplicationContext().getFilesDir();
-        File readFrom = new File(path, "temp.txt");
+        String file_name = getIntent().getExtras().getString(AdventureSelectActivity.ADVENTURE_TITLE_KEY) + ".txt";
+
+        File readFrom = new File(path, file_name);
 
         try {
 //            in_stream =
-//                    getApplicationContext().getAssets().open("adventureGameOne/adventure1.txt");
-            in_stream = new FileInputStream(readFrom);
+//                    getApplicationContext().getAssets().open("adventureGameOne/adventure1.txt"); // TODO: cant write to assets folder :(
+            in_stream = new FileInputStream(readFrom); // TODO: the real one. using getFilesDir()
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -67,6 +69,8 @@ public class ScenarioInitActivity extends AppCompatActivity {
         // READING INPUT FROM TXT
         while (reader.hasNext()) {
             input_txt = reader.next();
+
+            if (input_txt.matches("TITLE:.*") || input_txt.matches("ADV_DESC:.*")) continue;
 
             if (input_txt.matches("<SCENARIO[0-9]*>")) {
                 scene = new Scenario();
