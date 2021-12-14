@@ -233,6 +233,7 @@
             app:fab_colorPressed="#BC9A2D"
             app:fab_icon="@drawable/ic_baseline_edit_24"
             app:fab_size="mini"
+            android:visibility="gone"
             app:fab_title="Edit existing scenario" />
 
     </com.getbase.floatingactionbutton.FloatingActionsMenu>

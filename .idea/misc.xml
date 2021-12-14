@@ -3,16 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/adv_create_fab.xml" value="0.10520833333333333" />
+        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/adv_create_scenario_desc.xml" value="0.12135416666666667" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/cardview_stroke_color.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/cyoa_txt_hyperlinnk.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/fab_menu_labels_bg.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/drawable/sample_background.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/font/font.xml" value="0.20104166666666667" />
+        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_adventure_create.xml" value="0.22" />
+        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_adventure_game.xml" value="0.22" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_adventure_select.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_sample_adventure.xml" value="0.14666666666666667" />
-
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_scenario_init.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_signup.xml" value="0.1" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/adventure_choice_row.xml" value="0.3333333333333333" />
@@ -21,12 +24,8 @@
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/fragment_btn_txt_options.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/fragment_four_btns.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/fragment_three_btns.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/activity_signup.xml" value="0.2907679033649698" />
-        <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/adventure_choice_row.xml" value="0.3333333333333333" />
-
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/menu/adventure_select_bottom_menu.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/xml/selector.xml" value="0.17552083333333332" />
-        <entry key="app/src/main/res/layout/activity_adventure_select.xml" value="0.21739130434782608" />
       </map>
     </option>
   </component>
