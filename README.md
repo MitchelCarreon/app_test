@@ -1,12 +1,5 @@
-# app_test
+# Wyrd Choices
 An android app dedicated to CYOA (Create Your Own Adventure). This serves as a tool to make text-based games.
-
-
---------------------------------------
---------FASTER/ADMIN LOGIN------------
---------------------------------------
-email: admin
-password: admin
 
 
 --------------------------------------
