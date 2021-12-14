@@ -121,6 +121,22 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
                 this.scenario_to_add.btn_txts.replace(btn_txt_key, this.btn_txt_field_areas.get(i).getEditText().getText().toString());
             }
 
+
+            for (int i = 0; i < this.ref_drop_down_menus.size(); ++i){
+
+                String btn_ref_key = String.format("btn%d_dest", i + 1);
+                String input_btn_ref_desc = this.ref_drop_down_menus.get(i).getText().toString();
+
+                int btn_ref_index = -1;
+                for (int j = 0; j < this.scenarios.size(); ++j){
+                    if (this.scenarios.get(j).scene_desc_txt.equals(input_btn_ref_desc)){
+                        btn_ref_index = j;
+                        break;
+                    }
+                }
+                this.scenario_to_add.btn_paths.replace(btn_ref_key, btn_ref_index);
+
+            }
         }
 
         // ADDING THE SCENARIO
@@ -174,17 +190,24 @@ public class AdventureCreateActivity extends AppCompatActivity implements btnTxt
         } else this.binding.numBtnsDropdownInputLayout.setError(null);
 
 
-        // checking for btn txt field inputs
+        // checking for all btn txt field inputs and drop down menus for btn_references
         if (this.btn_txt_field_areas != null) {
             for (int i = 0; i < this.btn_txt_field_areas.size(); ++i) {
                 if (this.input_cvs_fragment.get(i).getVisibility() == View.VISIBLE) {
-                    EditText btn1_edit_txt = this.btn_txt_field_areas.get(i).getEditText();
-                    if (btn1_edit_txt != null) {
-                        if (btn1_edit_txt.getText().toString().isEmpty()) {
+
+                    EditText btn_edit_txt = this.btn_txt_field_areas.get(i).getEditText();
+                    if (btn_edit_txt != null) {
+                        if (btn_edit_txt.getText().toString().isEmpty()) {
                             this.btn_txt_field_areas.get(i).setError("*Required");
                             hasInvalidInput = true;
                         } else this.btn_txt_field_areas.get(i).setError(null);
                     }
+
+                    TextInputLayout ref_layout = (TextInputLayout) this.ref_drop_down_menus.get(i).getParent().getParent();
+                    if (this.ref_drop_down_menus.get(i).getText().toString().isEmpty()){
+                        ref_layout.setError("*Required");
+                        hasInvalidInput = true;
+                    } else ref_layout.setError(null);
                 }
             }
         } else hasInvalidInput = true;

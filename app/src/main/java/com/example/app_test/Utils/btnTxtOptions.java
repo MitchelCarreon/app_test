@@ -32,9 +32,9 @@ public class btnTxtOptions extends Fragment {
     private ArrayList<Scenario> scenarios; // FROM ACTIVITY . newInstance()
 
 
-    private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field; // PASSED TO ACTIVITY.
-    private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv;
-    private AutoCompleteTextView btn1_ref, btn2_ref, btn3_ref, btn4_ref;
+    private TextInputLayout btn1_field, btn2_field, btn3_field, btn4_field; // PASSED TO ACTIVITY. to get input.
+    private MaterialCardView btn1_cv, btn2_cv, btn3_cv, btn4_cv; // PASSED TO ACTIVITY. to determine visibility.
+    private AutoCompleteTextView btn1_ref, btn2_ref, btn3_ref, btn4_ref; // PASSED TO ACTIVTY. to get input.
 
     private onFieldsShownListener listener;
 
@@ -96,8 +96,6 @@ public class btnTxtOptions extends Fragment {
         ArrayList<MaterialCardView> valid_cvs = new ArrayList<>(
                 Arrays.asList(this.btn1_cv, this.btn2_cv, this.btn3_cv, this.btn4_cv)
         );
-
-
         listener.onFieldsShown(valid_fields, valid_ref_fields, valid_cvs);
 
     }
@@ -140,7 +138,7 @@ public class btnTxtOptions extends Fragment {
     }
 
 
-    // TODO: init dropdown menu with scenario recommendations -->
+    // TODO: init dropdown menu with scenario "recommendations" -->
     private void initNumBtnDropDown(AutoCompleteTextView drop_down_menu) {
 
         ArrayList<String> scenario_descs = new ArrayList<>();
