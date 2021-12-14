@@ -12,6 +12,7 @@ An Android app dedicated to CYOA (Create Your Own Adventure). A tool to make and
 
 ## Registration notes
 - The app does not require real email addresses, nor does it send any form of email, notification and whatnot to potentially valid ones.
+- Registration isn't required. Login faster using *"admin"* as both password and username
 
 
 ## Issues
