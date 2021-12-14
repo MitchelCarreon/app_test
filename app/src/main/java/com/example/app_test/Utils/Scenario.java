@@ -127,4 +127,10 @@ public class Scenario implements Parcelable {
         dest.writeInt(this.num_references_to);
         dest.writeByte((byte) (isEnding ? 1 : 0));
     }
+
+    @Override
+    public String toString() {
+        return this.scene_desc_txt;
+    }
+
 }

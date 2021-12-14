@@ -10,5 +10,11 @@
     <color name="red">#C86D6D</color>
     <color name="green">#76FF03</color>
 
+    <!-- fabs -->
+    <color name="fab_green_finalize">#7AB847</color>
+    <color name="fab_blue_add">#4146A5</color>
+    <color name="fab_green_finalize_pressed">#64953C</color>
+    <color name="fab_blue_add_pressed">#34377E</color>
+
 
 </resources>

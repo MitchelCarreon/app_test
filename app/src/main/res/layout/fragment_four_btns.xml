@@ -22,7 +22,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_1"
                 android:layout_width="320dp"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:text="button 1"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -31,7 +31,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_2"
                 android:layout_width="320dp"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:text="button 2"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -40,7 +40,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_3"
                 android:layout_width="320dp"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:text="button 3"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -49,7 +49,7 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_4"
                 android:layout_width="320dp"
-                android:layout_height="wrap_content"
+                android:layout_height="90dp"
                 android:text="button 4"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"

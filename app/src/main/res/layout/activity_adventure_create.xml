@@ -19,11 +19,78 @@
             android:orientation="vertical">
 
             <!--TODO: ADD ChipGroup here to display created scenarios -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/adventure_desc_and_title_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/title_and_description_adv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Adventure title">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/adventure_title_field"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:hint="Adventure Description"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="100">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/adventure_desc_field"
+                            android:layout_width="250dp"
+                            android:layout_height="100dp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/set_adventure_title_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="SET"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/title_and_description_adv"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/title_and_description_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@android:color/darker_gray" />
+
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_scenario_desc_area"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="wrap_content"
-                android:id="@+id/input_scenario_desc_area"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:focusable="true"
@@ -128,16 +195,58 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_scenario_btn"
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/fab_expand_menu_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:src="@drawable/ic_baseline_add_24"
-        app:fabSize="normal"
-        app:rippleColor="@color/red" />
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        app:fab_addButtonColorNormal="?attr/colorPrimary">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/finalize_adventure_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/fab_green_finalize"
+            app:fab_colorPressed="@color/fab_green_finalize_pressed"
+            app:fab_icon="@drawable/ic_baseline_flag_24"
+            app:fab_size="mini"
+            app:fab_title="Create/Finalize adventure" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_scenario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="@color/fab_blue_add"
+            app:fab_colorPressed="@color/fab_blue_add_pressed"
+            app:fab_icon="@drawable/ic_baseline_add_circle_24"
+            app:fab_size="mini"
+            app:fab_title="Add scenario" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/edit_scenario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:fab_colorNormal="#FFC400"
+            app:fab_colorPressed="#BC9A2D"
+            app:fab_icon="@drawable/ic_baseline_edit_24"
+            app:fab_size="mini"
+            app:fab_title="Edit existing scenario" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/add_scenario_btn"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:layout_marginBottom="20dp"-->
+    <!--        android:src="@drawable/ic_baseline_add_24"-->
+    <!--        app:fabSize="normal"-->
+    <!--        app:rippleColor="@color/red" />-->
 
 </RelativeLayout>
