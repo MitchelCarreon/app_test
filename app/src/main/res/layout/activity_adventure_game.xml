@@ -13,6 +13,7 @@
         android:layout_marginBottom="20dp"
         android:textSize="20sp"
         android:text="scenario description"
+        android:padding="15sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/game_btns_area"
         app:layout_constraintLeft_toLeftOf="parent"
