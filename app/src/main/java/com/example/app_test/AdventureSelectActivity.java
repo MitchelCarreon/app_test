@@ -7,7 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.app_test.Utils.User;
@@ -36,10 +41,12 @@ import java.util.Scanner;
 
 public class AdventureSelectActivity extends AppCompatActivity {
     public static final String ADVENTURE_TITLE_KEY = "ADVENTURE TITLE";
+    private static final String TAG = AdventureSelectActivity.class.getSimpleName();
 
     private ActivityAdventureSelectBinding binding;
     private RecyclerView recyclerView;
     private AdventureSelectAdapter adapter;
+
     // sample push
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +105,6 @@ public class AdventureSelectActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent toAdvCreate = new Intent(getBaseContext(), AdventureCreateActivity.class);
                 startActivity(toAdvCreate);
-
             }
         });
     }

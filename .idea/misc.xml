@@ -26,6 +26,13 @@
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/layout/fragment_three_btns.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/menu/adventure_select_bottom_menu.xml" value="0.17083333333333334" />
         <entry key="..\:/Users/miggy/AndroidStudioProjects/app_test/app/src/main/res/xml/selector.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/layout/activity_adventure_create.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_adventure_select.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.14447463768115942" />
+        <entry key="app/src/main/res/layout/btn_options_dropdown_row.xml" value="0.14447463768115942" />
+        <entry key="app/src/main/res/layout/fragment_four_btns.xml" value="0.14447463768115942" />
+        <entry key="app/src/main/res/layout/main_menu.xml" value="0.14447463768115942" />
+        <entry key="app/src/main/res/menu/adventure_select_bottom_menu.xml" value="0.16458333333333333" />
       </map>
     </option>
   </component>
